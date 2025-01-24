@@ -1,0 +1,11 @@
+---
+title: "microGalaxy 2025 Paper"
+---
+
+This is a Quarto website. **This repository includes all the scripts written to produce figures in the paper along with the resulted figures**
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```

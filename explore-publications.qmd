@@ -1,0 +1,286 @@
+---
+title: "Explore Publications"
+execute:
+    eval: false
+---
+
+This notebook explore the publications citing Galaxy.
+
+```{python}
+import datetime
+import matplotlib.pyplot as plt
+import os
+import pandas as pd
+import pprint
+import re
+import requests
+import time
+
+from pathlib import Path
+from pyzotero import zotero
+from scholarly import ProxyGenerator, scholarly
+```
+
+```{python}
+result_dp = Path("../results/citations/") 
+result_dp.mkdir(parents=True, exist_ok=True)
+```
+
+```{python}
+searched_tags = [
+    'bacteri', # bacteria, bacterio
+    'prokaryot', # prokaryote, prokaryotic
+    'microb', # microbiome, microbiota, microbial, microbiology, microbe
+    'pathogen',
+    'virus',
+    'phage',
+    'archae',
+    'flora',
+    'microecology',
+    'microorganism', 'micro-organism',
+    'microbiome', 'microbiota',
+    'metabarcod', # metabarcode, metabarcoding
+        '16s', '16 s',
+        '18s',
+        'amplicon',
+        'metataxonom',
+    'metagenom', # metagenome, metagenomic
+    'metatranscriptom', # metatranscriptome, metatranscriptomic
+    'metaproteom', # metaproteome, metaproteomic
+    'multi-locus sequence typing', 'multilocus sequence typing', 'mlst',
+    'otu'
+]
+```
+
+```{python}
+def create_grouping_keywords():
+    return {
+        'Targeted organisms': {
+            'Bacteria': {
+                'keywords': ['bacteri', 'prokaryot'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Virus': {
+                'keywords': ['virus', 'phage'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Archaea': {
+                'keywords': ['archae'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Eukaryote': {
+                'keywords': ['eukaryot'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Microbiome': {
+                'keywords': ['microbiome', 'microbiota', 'flora', 'ecology', 'community', 'communities'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Pathogen': {
+                'keywords': ['pathogen'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            }
+        },
+        'Technical target': {
+            'Isolate': {
+                'keywords': ['isolate'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Community (taxonomy) profiling': {
+                'keywords': ['otu', 'asv', 'taxonom', 'community', 'communities', 'ecosystem', 'diversity', 'ecology'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Functional analysis': {
+                'keywords': ['function'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Interactome': {
+                'keywords': ['interaction'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'AMR': {
+                'keywords': ['antimicrobial', 'resistan', 'amr'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'MAGs': {
+                'keywords': ['mags', 'metagenome-assembled genome', 'assembly'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Gene identification / Biomarker': {
+                'keywords': ['gene identification', 'biomarker'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'SNP': {
+                'keywords': ['snp', 'single-nucleotide polymorphism'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            '(M)LST': {
+                'keywords': ['mlst', 'locus sequence typing'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Annotation': {
+                'keywords': ['annotation'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Variant': {
+                'keywords': ['variant'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Comparative analysis': {
+                'keywords': ['comparative'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+        },
+        'Methods': {
+            'Metabarcoding': {
+                'keywords': ['metabarcod', '16s', '16 s', '18s', 'amplicon', 'metataxonom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            '(Meta)genomics': {
+                'keywords': ['genom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Metagenomics': {
+                'keywords': ['metagenom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            '(Meta)transcriptomics': {
+                'keywords': ['transcriptom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Metatranscriptomics': {
+                'keywords': ['metatranscriptom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            '(Meta)proteomics': {
+                'keywords': ['proteom', 'mass spectrometry'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Metaproteomics': {
+                'keywords': ['metaproteom'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Metabolomics': {
+                'keywords': ['metabolom', 'metabolite'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+            'Imaging': {
+                'keywords': ['imaging'],
+                'location': ['tag', 'title', 'abstract'],
+                'counts': 0
+            },
+        }    
+    }
+
+def find_kw(string, kws):
+    '''
+    Return if a 1 keyword in a list is found in a string
+
+    :param string: string to search
+    :param kws: list of keywords to search
+    '''
+    found = False
+    for kw in kws:
+        if kw in string:
+            found = True
+    return found
+```
+
+## Galaxy Publication Library
+
+The Galaxy Project uses the Zotero social bookmarking service to organize publications that reference Galaxy. The Galaxy Group lists published articles, conference proceedings, theses, book chapters and books that use, extend, reference or implement Galaxy.
+
+```{python}
+ZOTERO_API = os.getenv('ZOTERO_API')
+zot = zotero.Zotero('1732893', 'group', ZOTERO_API)
+```
+
+In this Galaxy Publication Library, the number of elements is:
+
+```{python}
+element_nb = zot.count_items()
+element_nb
+```
+
+## Extract items based on keywords in tags, titles, and abstracts
+
+The library makes extensive use of tags to categorize publications and enable smarter searching. But only papers added after the library was moved to Zotero in September 2017 have automatically added tags.
+
+We extract items related to microbial data analysis by checking if their title, abstract, or tags contains any of following keywords:
+
+```{python}
+conserved_items = []
+conserved_tags = set()
+excluded_tags = set()
+years = {
+    "all": {},
+    "microbial": {}
+}
+
+
+for y in range(2005, datetime.date.today().year+2):
+    years["all"].setdefault(f"{y}", 0)
+    years["microbial"].setdefault(f"{y}", 0)
+
+for item in zot.everything(zot.top()):
+    year = 0
+    
+    # get year
+    if "date" in item["data"]:
+        match = re.match(r".*(2[0-9]{3})", item["data"]["date"])
+        if match is not None:
+            year = match.group(1)
+            years["all"][year] += 1
+    
+    to_add = False
+
+    # search in tags
+    for tag in item['data']['tags']:
+        for st in searched_tags:
+            if st in tag['tag'].lower():
+                conserved_tags.add(tag['tag'].lower())
+                to_add = True
+            else:
+                excluded_tags.add(tag['tag'].lower())
+
+    # search in title and abstract
+    for st in searched_tags:
+        if 'title' in item['data'] and st in item['data']['title'].lower():
+            to_add = True
+        if 'abstractNote' in item['data'] and st in item['data']['abstractNote'].lower():
+            to_add = True
+
+    # keep item if found
+    if to_add:
+        conserved_items.append(item)
+        if year != 0:
+            years["microbial"][year] += 1
+```
+
+*CONTINUE*
