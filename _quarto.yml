@@ -12,6 +12,13 @@ book:
     - href: index.qmd
       text: Home
     - qmd/survey.qmd
+  page-footer: 
+    border: true
+    background: "#ebebeb"
+    left: |
+      This page is built with [**Quarto**](https://quarto.org/) and is licensed under the [**MIT License**](https://opensource.org/license/mit)
+    right: |
+      © Copyright 2025 The Microbiology Galaxy Lab.
 
 format:
   html:
@@ -20,8 +27,9 @@ format:
     fig-format: svg
     code-fold: true
     code-tools: true
+    code-block-bg: true
     code-block-border-left: "#72876d"
-    # css: custom.css
+    # css: sass/custom.scss
     backgroundcolor: "#F5F5F5"
 knitr:
  opts_chunk:
