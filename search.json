@@ -14,7 +14,7 @@
     "href": "index.html#running-the-code-yourself",
     "title": "The Microbiology Galaxy Lab",
     "section": "Running the code yourself",
-    "text": "Running the code yourself\n\nInstallation\nTOADD\n\n\nData\nTOADD",
+    "text": "Running the code yourself\n\nInstallation\nThe website is built with Quarto. To run the book locally, you need to install Quarto.\nOnce installed launch a terminal session and run:\nquarto render .\nquarto preview .\nTODO: add any relevant R/Python libraries that need to be installed\n\n\nData\nTOADD",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#contributing",
     "title": "The Microbiology Galaxy Lab",
     "section": "Contributing",
-    "text": "Contributing\nTOADD",
+    "text": "Contributing\nContributions are welcome! You can participate by opening an issue on the GitHub repository or submitting a pull request (PR). To create a new PR, follow these steps:\n\nFork the main branch.\nMake your contributions (refer to the Quarto Guide if needed):\n\nAdd a new .qmd file to the qmd folder.\nUpdate an existing .qmd file.\n… add any other necessary improvements.\n\nRun a preview of your instance to see the relevant changes.\nOpen a draft PR and resolve any conflicts.\nWhen ready, mark the PR as Ready for Review.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Home</span>"
     ]
