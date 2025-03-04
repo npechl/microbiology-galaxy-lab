@@ -2,21 +2,27 @@
 title: "microGalaxy 2025 Paper"
 ---
 
+::: {.callout-warning}
+## Warning
+
+The current version of this book is a work in progress. Any content should not be considered final at this stage.
+:::
+
 # Preface {.unnumbered}
 
 *TOADD*
 
-## Who is this for? {.unnumbered}
+### Who is this for? {.unnumbered}
 
 *TOADD*
 
-## Why? {.unnumbered}
+### Why? {.unnumbered}
 
 *TOADD*
-
-## Credit {.unnumbered}
 
 ## Running the code yourself {.unnumbered}
+
+### Installation {.unnumbered}
 
 *TOADD*
 
@@ -25,5 +31,9 @@ title: "microGalaxy 2025 Paper"
 *TOADD*
 
 ## Contributing {.unnumbered}
+
+*TOADD*
+
+## Credit {.unnumbered}
 
 *TOADD*

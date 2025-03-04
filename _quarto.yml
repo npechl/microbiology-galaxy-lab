@@ -6,12 +6,12 @@ book:
   description: A community-driven gateway to tools, workflows, and training for reproducible and FAIR analysis of microbial data
   sidebar: 
     background: "#F5F5F5"
-    logo: microgalaxy-logo.png
+    logo: static/microgalaxy-logo.png
     search: true
   chapters:
     - href: index.qmd
       text: Home
-    - survey.qmd
+    - qmd/survey.qmd
 
 format:
   html:
@@ -21,7 +21,7 @@ format:
     code-fold: true
     code-tools: true
     code-block-border-left: "#72876d"
-    css: custom.css
+    # css: custom.css
     backgroundcolor: "#F5F5F5"
 knitr:
  opts_chunk:
