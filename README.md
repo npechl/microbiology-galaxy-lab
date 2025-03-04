@@ -8,7 +8,7 @@ The website is built with [Quarto](https://quarto.org/). To run the book locally
 
 Once installed launch a terminal session and run: 
 
-```{bash}
+```bash
 quarto render .
 quarto preview .
 ```
