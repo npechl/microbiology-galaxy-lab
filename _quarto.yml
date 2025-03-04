@@ -1,22 +1,29 @@
 project:
-  type: website
+  type: book
 
-website:
-  title: "microGalaxy paper"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - explore-publications.qmd
-      - survey.qmd
+book:
+  title: "The Microbiology Galaxy Lab"
+  description: A community-driven gateway to tools, workflows, and training for reproducible and FAIR analysis of microbial data
+  sidebar: 
+    background: "#F5F5F5"
+    logo: microgalaxy-logo.png
+    search: true
+  chapters:
+    - href: index.qmd
+      text: Home
+    - survey.qmd
 
 format:
   html:
     theme:
-      - cosmo
-      - brand
-    css: styles.css
-    toc: true
-
-editor: visual
-
+      light: cosmo
+    fig-format: svg
+    code-fold: true
+    code-tools: true
+    code-block-border-left: "#72876d"
+    css: custom.css
+    backgroundcolor: "#F5F5F5"
+knitr:
+ opts_chunk:
+   dev: svg
+   dev.args: { bg: "transparent" }

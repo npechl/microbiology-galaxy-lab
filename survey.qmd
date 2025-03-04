@@ -1,7 +1,12 @@
 ---
 title: "Survey"
 execute:
-    eval: false
+    eval: true
+    warning: false
+format:
+  html:
+    fig-width: 9
+    fig-height: 10
 ---
 
 ## Load data analytics `libraries`
@@ -11,18 +16,20 @@ library(data.table)
 library(stringr)
 ```
 
-## Input data 
+## Input data
 
 ```{r}
-df <- "https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv" |> fread()
+df <- fread("https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv")
 ```
 
-### Correct column names 
+### Correct column names
 
 ```{r}
 df$V1 <- NULL
 
-df$Timestamp <- df$Timestamp |> str_split_i("\\ ", 1) |> lubridate::as_date(format = "%d/%m/%Y")
+df$Timestamp <- df$Timestamp |> 
+    str_split_i("\\ ", 1) |> 
+    lubridate::as_date(format = "%d/%m/%Y")
 
 df$`Which country are you based in?` <- df$`Which country are you based in?` |>
     str_to_title() |>
@@ -33,13 +40,14 @@ df$`Which country are you based in?` <- df$`Which country are you based in?` |>
     str_replace("England", "United Kingdom")
 ```
 
-### Add continent 
+### Add continent
 
 ```{r}
-df$Continent <- df$`Which country are you based in?` |> countrycode::countrycode(origin = "country.name", destination = "continent")
+df$Continent <- df$`Which country are you based in?` |> 
+    countrycode::countrycode(origin = "country.name", destination = "continent")
 ```
 
-### Columns of interest 
+### Columns of interest
 
 ```{r}
 coi <- c(
@@ -67,7 +75,7 @@ colnames(df_1) = c(
 )
 ```
 
-## What is your main target? 
+## What is your main target?
 
 ```{r}
 p1 <- df_1$MainTarget |> 
@@ -89,7 +97,7 @@ p1 <- p1[, by = group, .( N = N |> sum())]
 p1$Prop <- p1$N / sum(p1$N)
 ```
 
-## Which techniques do you use? 
+## Which techniques do you use?
 
 ```{r}
 p2 <- df_1$Techniques |>
@@ -117,7 +125,7 @@ p2 <- p2[, by = group, .( N = N |> sum())]
 p2$Prop <- p2$N / sum(p2$N)
 ```
 
-## Which analysis do you use or would like to do? 
+## Which analysis do you use or would like to do?
 
 ```{r}
 p3 <- df_1$Analysis |>
@@ -146,10 +154,8 @@ p3 <- p3[, by = group, .( N = N |> sum())]
 p3$Prop <- p3$N / sum(p3$N)
 ```
 
+## Galaxy Obstacles
 
-
-
-## Galaxy Obstacles 
 ```{r}
 p4 <- df_1$ReasonNotUse |> 
     str_split("\\,") |>
@@ -162,7 +168,8 @@ p4 <- p4[which(reason != ""), by = reason, .(N = id |> unique() |> length())]
 p4$Prop <- p4$N / sum(p4$N)
 ```
 
-## Which continent are you based in? 
+## Which continent are you based in?
+
 ```{r}
 p5 <- df_1[, by = Continent, .N]
 
@@ -174,6 +181,7 @@ p5$Prop <- p5$N / sum(p5$N)
 ```
 
 ## If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?
+
 ```{r}
 
 p6 <- df_1[, by = PreferenceToUse, .N]
@@ -183,7 +191,8 @@ p6[which(PreferenceToUse == "")]$PreferenceToUse = "Unknown"
 p6$Prop <- p6$N / sum(p6$N)
 ```
 
-## Merge data table lsit -----------
+## Merge data table list
+
 ```{r}
 df_plot <- list(
     "What is your main target?"                                = p1,
@@ -206,7 +215,8 @@ df_plot <- list(
     }) |>
     rbindlist(idcol = "question")
 ```
-## Output Figure 
+
+## Output Figure
 
 ### Load plotting `libraries`
 
@@ -217,9 +227,12 @@ library(ggh4x)
 library(shadowtext)
 
 library(tidytext)
+library(paletteer)
+library(extrafont)
 ```
 
 ### Plot
+
 ```{r}
 df_plot$question2 <- df_plot$question |> str_wrap(width = 30)
 
@@ -283,8 +296,11 @@ gr <- df_plot |>
         axis.line = element_line(lineend = "round"),
         axis.ticks = element_line(lineend = "round"),
         
-        plot.margin = margin(20, 20, 20, 20)
+        plot.margin = margin(20, 20, 20, 20),
+        plot.background = element_rect(fill = "transparent", color = NA)
     ) +
     
     labs(x = "Number of Responses", fill = "Proportion")
+
+gr
 ```
