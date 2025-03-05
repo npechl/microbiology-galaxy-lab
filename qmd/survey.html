@@ -168,9 +168,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load-data-analytics-libraries" id="toc-load-data-analytics-libraries" class="nav-link active" data-scroll-target="#load-data-analytics-libraries"><span class="header-section-number">2.1</span> Load data analytics <code>libraries</code></a></li>
   <li><a href="#input-data" id="toc-input-data" class="nav-link" data-scroll-target="#input-data"><span class="header-section-number">2.2</span> Input data</a>
   <ul class="collapse">
-  <li><a href="#correct-column-names" id="toc-correct-column-names" class="nav-link" data-scroll-target="#correct-column-names"><span class="header-section-number">2.2.1</span> Correct column names</a></li>
-  <li><a href="#add-continent" id="toc-add-continent" class="nav-link" data-scroll-target="#add-continent"><span class="header-section-number">2.2.2</span> Add continent</a></li>
-  <li><a href="#columns-of-interest" id="toc-columns-of-interest" class="nav-link" data-scroll-target="#columns-of-interest"><span class="header-section-number">2.2.3</span> Columns of interest</a></li>
+  <li><a href="#correct-column-names" id="toc-correct-column-names" class="nav-link" data-scroll-target="#correct-column-names">Correct column names</a></li>
+  <li><a href="#add-continent" id="toc-add-continent" class="nav-link" data-scroll-target="#add-continent">Add continent</a></li>
+  <li><a href="#columns-of-interest" id="toc-columns-of-interest" class="nav-link" data-scroll-target="#columns-of-interest">Columns of interest</a></li>
   </ul></li>
   <li><a href="#what-is-your-main-target" id="toc-what-is-your-main-target" class="nav-link" data-scroll-target="#what-is-your-main-target"><span class="header-section-number">2.3</span> What is your main target?</a></li>
   <li><a href="#which-techniques-do-you-use" id="toc-which-techniques-do-you-use" class="nav-link" data-scroll-target="#which-techniques-do-you-use"><span class="header-section-number">2.4</span> Which techniques do you use?</a></li>
@@ -181,8 +181,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#merge-data-table-list" id="toc-merge-data-table-list" class="nav-link" data-scroll-target="#merge-data-table-list"><span class="header-section-number">2.9</span> Merge data table list</a></li>
   <li><a href="#output-figure" id="toc-output-figure" class="nav-link" data-scroll-target="#output-figure"><span class="header-section-number">2.10</span> Output Figure</a>
   <ul class="collapse">
-  <li><a href="#load-plotting-libraries" id="toc-load-plotting-libraries" class="nav-link" data-scroll-target="#load-plotting-libraries"><span class="header-section-number">2.10.1</span> Load plotting <code>libraries</code></a></li>
-  <li><a href="#plot" id="toc-plot" class="nav-link" data-scroll-target="#plot"><span class="header-section-number">2.10.2</span> Plot</a></li>
+  <li><a href="#load-plotting-libraries" id="toc-load-plotting-libraries" class="nav-link" data-scroll-target="#load-plotting-libraries">Load plotting <code>libraries</code></a></li>
+  <li><a href="#plot" id="toc-plot" class="nav-link" data-scroll-target="#plot">Plot</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -221,14 +221,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="input-data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="input-data"><span class="header-section-number">2.2</span> Input data</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data source
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/paulzierep/microgalaxy-survey">paulzierep/microgalaxy-survey</a></p>
+</div>
+</div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="correct-column-names" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="correct-column-names"><span class="header-section-number">2.2.1</span> Correct column names</h3>
+<section id="correct-column-names" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="correct-column-names">Correct column names</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -248,8 +261,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="add-continent" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="add-continent"><span class="header-section-number">2.2.2</span> Add continent</h3>
+<section id="add-continent" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="add-continent">Add continent</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -258,8 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="columns-of-interest" class="level3" data-number="2.2.3">
-<h3 data-number="2.2.3" class="anchored" data-anchor-id="columns-of-interest"><span class="header-section-number">2.2.3</span> Columns of interest</h3>
+<section id="columns-of-interest" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="columns-of-interest">Columns of interest</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -453,8 +466,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="output-figure" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="output-figure"><span class="header-section-number">2.10</span> Output Figure</h2>
-<section id="load-plotting-libraries" class="level3" data-number="2.10.1">
-<h3 data-number="2.10.1" class="anchored" data-anchor-id="load-plotting-libraries"><span class="header-section-number">2.10.1</span> Load plotting <code>libraries</code></h3>
+<section id="load-plotting-libraries" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="load-plotting-libraries">Load plotting <code>libraries</code></h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -469,8 +482,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 </section>
-<section id="plot" class="level3" data-number="2.10.2">
-<h3 data-number="2.10.2" class="anchored" data-anchor-id="plot"><span class="header-section-number">2.10.2</span> Plot</h3>
+<section id="plot" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="plot">Plot</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1057,291 +1070,297 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## Input data</span></span>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv"</span>)</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data source</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">paulzierep/microgalaxy-survey</span><span class="co">](https://github.com/paulzierep/microgalaxy-survey)</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">### Correct column names</span></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>V1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Timestamp <span class="ot">&lt;-</span> df<span class="sc">$</span>Timestamp <span class="sc">|&gt;</span> </span>
-<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split_i</span>(<span class="st">"</span><span class="sc">\\</span><span class="st"> "</span>, <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    lubridate<span class="sc">::</span><span class="fu">as_date</span>(<span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>)</span>
-<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="sc">|&gt;</span></span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split_i</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>, <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Bazil"</span>, <span class="st">"Brazil"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Hunagry"</span>, <span class="st">"Hungary"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"England"</span>, <span class="st">"United Kingdom"</span>)</span>
-<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Add continent</span></span>
-<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Continent <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="sc">|&gt;</span> </span>
-<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>    countrycode<span class="sc">::</span><span class="fu">countrycode</span>(<span class="at">origin =</span> <span class="st">"country.name"</span>, <span class="at">destination =</span> <span class="st">"continent"</span>)</span>
-<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Columns of interest</span></span>
-<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a>coi <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Timestamp"</span>, </span>
-<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>    <span class="st">"What is your main target?"</span>,</span>
-<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which techniques do you use?"</span>,</span>
-<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which analysis do you use or would like to do?"</span>,</span>
-<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Galaxy Obstacles"</span>,</span>
-<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which country are you based in?"</span>,</span>
-<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Continent"</span>,</span>
-<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?"</span></span>
-<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> df[, coi, with <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_1) <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Timestamp"</span>, </span>
-<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MainTarget"</span>,</span>
-<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Techniques"</span>,</span>
-<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Analysis"</span>,</span>
-<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ReasonNotUse"</span>,</span>
-<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Country"</span>,</span>
-<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Continent"</span>,</span>
-<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PreferenceToUse"</span></span>
-<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is your main target?</span></span>
-<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>MainTarget <span class="sc">|&gt;</span> </span>
-<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove_all</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|Protozoa, Helminths|Plasmodium falciparum|</span><span class="sc">\\</span><span class="st">)"</span>) <span class="sc">|&gt;</span>  </span>
-<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-96"><a href="#cb15-96" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Viruses"</span>, <span class="st">"Virus"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-97"><a href="#cb15-97" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"And Fungal Pathogens"</span>, <span class="st">"Fungal Pathogens"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span> </span>
-<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"target"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span> </span>
-<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
-<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p1[<span class="fu">which</span>(target <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> target, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb15-104"><a href="#cb15-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-105"><a href="#cb15-105" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p1<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p1<span class="sc">$</span>target, <span class="st">"Other"</span>)</span>
-<span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p1[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv"</span>)</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Correct column names {.unnumbered}</span></span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>V1 <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Timestamp <span class="ot">&lt;-</span> df<span class="sc">$</span>Timestamp <span class="sc">|&gt;</span> </span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split_i</span>(<span class="st">"</span><span class="sc">\\</span><span class="st"> "</span>, <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>    lubridate<span class="sc">::</span><span class="fu">as_date</span>(<span class="at">format =</span> <span class="st">"%d/%m/%Y"</span>)</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="sc">|&gt;</span></span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split_i</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>, <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_squish</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Bazil"</span>, <span class="st">"Brazil"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Hunagry"</span>, <span class="st">"Hungary"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"England"</span>, <span class="st">"United Kingdom"</span>)</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Add continent {.unnumbered}</span></span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Continent <span class="ot">&lt;-</span> df<span class="sc">$</span><span class="st">`</span><span class="at">Which country are you based in?</span><span class="st">`</span> <span class="sc">|&gt;</span> </span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>    countrycode<span class="sc">::</span><span class="fu">countrycode</span>(<span class="at">origin =</span> <span class="st">"country.name"</span>, <span class="at">destination =</span> <span class="st">"continent"</span>)</span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Columns of interest {.unnumbered}</span></span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>coi <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Timestamp"</span>, </span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">"What is your main target?"</span>,</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which techniques do you use?"</span>,</span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which analysis do you use or would like to do?"</span>,</span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Galaxy Obstacles"</span>,</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which country are you based in?"</span>,</span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Continent"</span>,</span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?"</span></span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a>df_1 <span class="ot">&lt;-</span> df[, coi, with <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_1) <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Timestamp"</span>, </span>
+<span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MainTarget"</span>,</span>
+<span id="cb15-85"><a href="#cb15-85" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Techniques"</span>,</span>
+<span id="cb15-86"><a href="#cb15-86" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Analysis"</span>,</span>
+<span id="cb15-87"><a href="#cb15-87" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ReasonNotUse"</span>,</span>
+<span id="cb15-88"><a href="#cb15-88" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Country"</span>,</span>
+<span id="cb15-89"><a href="#cb15-89" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Continent"</span>,</span>
+<span id="cb15-90"><a href="#cb15-90" aria-hidden="true" tabindex="-1"></a>    <span class="st">"PreferenceToUse"</span></span>
+<span id="cb15-91"><a href="#cb15-91" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## What is your main target?</span></span>
+<span id="cb15-95"><a href="#cb15-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-98"><a href="#cb15-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-99"><a href="#cb15-99" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>MainTarget <span class="sc">|&gt;</span> </span>
+<span id="cb15-100"><a href="#cb15-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove_all</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(|Protozoa, Helminths|Plasmodium falciparum|</span><span class="sc">\\</span><span class="st">)"</span>) <span class="sc">|&gt;</span>  </span>
+<span id="cb15-101"><a href="#cb15-101" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-102"><a href="#cb15-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Viruses"</span>, <span class="st">"Virus"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-103"><a href="#cb15-103" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"And Fungal Pathogens"</span>, <span class="st">"Fungal Pathogens"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-104"><a href="#cb15-104" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-105"><a href="#cb15-105" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span> </span>
+<span id="cb15-106"><a href="#cb15-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"target"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-107"><a href="#cb15-107" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
 <span id="cb15-108"><a href="#cb15-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p1<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p1<span class="sc">$</span>N)</span>
-<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which techniques do you use?</span></span>
-<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>Techniques <span class="sc">|&gt;</span></span>
-<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove</span>(<span class="st">"I Am Trying To Learn! Mostly Outsourced To Service Providers But Need To Learn As I Have Observed Inconsistent Results"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove_all</span>(<span class="st">"Amplicon|</span><span class="sc">\\</span><span class="st">/"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Chip-Seq"</span>, <span class="st">"ChIP-seq"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Proteomics Or Metaproteomics"</span>, <span class="st">"(Meta)Proteomics"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Transcriptomics Or Metatranscriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Metatranscriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Single Organism Transcriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Md Simulations"</span>, <span class="st">"MD simulations"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
-<span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"technique"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
-<span id="cb15-130"><a href="#cb15-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
-<span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-133"><a href="#cb15-133" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2[<span class="fu">which</span>(technique <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> technique, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb15-134"><a href="#cb15-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-135"><a href="#cb15-135" aria-hidden="true" tabindex="-1"></a>p2<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p2<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p2<span class="sc">$</span>technique, <span class="st">"Other"</span>)</span>
-<span id="cb15-136"><a href="#cb15-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-137"><a href="#cb15-137" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-109"><a href="#cb15-109" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p1[<span class="fu">which</span>(target <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> target, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
+<span id="cb15-110"><a href="#cb15-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-111"><a href="#cb15-111" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p1<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p1<span class="sc">$</span>target, <span class="st">"Other"</span>)</span>
+<span id="cb15-112"><a href="#cb15-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-113"><a href="#cb15-113" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> p1[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-114"><a href="#cb15-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-115"><a href="#cb15-115" aria-hidden="true" tabindex="-1"></a>p1<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p1<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p1<span class="sc">$</span>N)</span>
+<span id="cb15-116"><a href="#cb15-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-117"><a href="#cb15-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-118"><a href="#cb15-118" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which techniques do you use?</span></span>
+<span id="cb15-119"><a href="#cb15-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>Techniques <span class="sc">|&gt;</span></span>
+<span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove</span>(<span class="st">"I Am Trying To Learn! Mostly Outsourced To Service Providers But Need To Learn As I Have Observed Inconsistent Results"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_remove_all</span>(<span class="st">"Amplicon|</span><span class="sc">\\</span><span class="st">/"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Chip-Seq"</span>, <span class="st">"ChIP-seq"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Proteomics Or Metaproteomics"</span>, <span class="st">"(Meta)Proteomics"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-129"><a href="#cb15-129" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Transcriptomics Or Metatranscriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-130"><a href="#cb15-130" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Metatranscriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Single Organism Transcriptomics"</span>, <span class="st">"(Meta)Transcriptomics"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Md Simulations"</span>, <span class="st">"MD simulations"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-133"><a href="#cb15-133" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-134"><a href="#cb15-134" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
+<span id="cb15-135"><a href="#cb15-135" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"technique"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
+<span id="cb15-136"><a href="#cb15-136" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
+<span id="cb15-137"><a href="#cb15-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-138"><a href="#cb15-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a>p2<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p2<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p2<span class="sc">$</span>N)</span>
-<span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-141"><a href="#cb15-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which analysis do you use or would like to do?</span></span>
-<span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-147"><a href="#cb15-147" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>Analysis <span class="sc">|&gt;</span></span>
-<span id="cb15-148"><a href="#cb15-148" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Gwas"</span>, <span class="st">"GWAS"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-150"><a href="#cb15-150" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Mag"</span>, <span class="st">"MAG"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-151"><a href="#cb15-151" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Snp"</span>, <span class="st">"SNP"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Mlst"</span>, <span class="st">"MLST"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"MAGs Building"</span>, <span class="st">"Metagenome Assembled Genome (MAG) Building"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"SNP Identification"</span>, <span class="st">"Single Nucleotide Polymorphism (SNP) Identification"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Transcriptome Assembler"</span>, <span class="st">"Transcriptome Assembly"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
-<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"analysis"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
-<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
-<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p3[<span class="fu">which</span>(analysis <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> analysis, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p3<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p3<span class="sc">$</span>analysis, <span class="st">"Other"</span>)</span>
-<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p3[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-139"><a href="#cb15-139" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2[<span class="fu">which</span>(technique <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> technique, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
+<span id="cb15-140"><a href="#cb15-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-141"><a href="#cb15-141" aria-hidden="true" tabindex="-1"></a>p2<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p2<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p2<span class="sc">$</span>technique, <span class="st">"Other"</span>)</span>
+<span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> p2[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-144"><a href="#cb15-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a>p2<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p2<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p2<span class="sc">$</span>N)</span>
+<span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-147"><a href="#cb15-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-148"><a href="#cb15-148" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which analysis do you use or would like to do?</span></span>
+<span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-152"><a href="#cb15-152" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-153"><a href="#cb15-153" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>Analysis <span class="sc">|&gt;</span></span>
+<span id="cb15-154"><a href="#cb15-154" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_to_title</span>() <span class="sc">|&gt;</span></span>
+<span id="cb15-155"><a href="#cb15-155" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Gwas"</span>, <span class="st">"GWAS"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-156"><a href="#cb15-156" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Mag"</span>, <span class="st">"MAG"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-157"><a href="#cb15-157" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Snp"</span>, <span class="st">"SNP"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-158"><a href="#cb15-158" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Mlst"</span>, <span class="st">"MLST"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-159"><a href="#cb15-159" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-160"><a href="#cb15-160" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"MAGs Building"</span>, <span class="st">"Metagenome Assembled Genome (MAG) Building"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-161"><a href="#cb15-161" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"SNP Identification"</span>, <span class="st">"Single Nucleotide Polymorphism (SNP) Identification"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-162"><a href="#cb15-162" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace</span>(<span class="st">"Transcriptome Assembler"</span>, <span class="st">"Transcriptome Assembly"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-163"><a href="#cb15-163" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-164"><a href="#cb15-164" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-165"><a href="#cb15-165" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
+<span id="cb15-166"><a href="#cb15-166" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"analysis"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
+<span id="cb15-167"><a href="#cb15-167" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
+<span id="cb15-168"><a href="#cb15-168" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-169"><a href="#cb15-169" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p3<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p3<span class="sc">$</span>N)</span>
-<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a><span class="fu">## Galaxy Obstacles</span></span>
-<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>ReasonNotUse <span class="sc">|&gt;</span> </span>
-<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
-<span id="cb15-181"><a href="#cb15-181" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"reason"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
-<span id="cb15-182"><a href="#cb15-182" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
-<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> p4[<span class="fu">which</span>(reason <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> reason, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a>p4<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p4<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p4<span class="sc">$</span>N)</span>
-<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which continent are you based in?</span></span>
-<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> df_1[, by <span class="ot">=</span> Continent, .N]</span>
-<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-170"><a href="#cb15-170" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p3[<span class="fu">which</span>(analysis <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> analysis, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
+<span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">$</span>group <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p3<span class="sc">$</span>N <span class="sc">&gt;</span> <span class="dv">1</span>, p3<span class="sc">$</span>analysis, <span class="st">"Other"</span>)</span>
+<span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> p3[, by <span class="ot">=</span> group, .( <span class="at">N =</span> N <span class="sc">|&gt;</span> <span class="fu">sum</span>())]</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a>p3<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p3<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p3<span class="sc">$</span>N)</span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Galaxy Obstacles</span></span>
+<span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-183"><a href="#cb15-183" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-184"><a href="#cb15-184" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> df_1<span class="sc">$</span>ReasonNotUse <span class="sc">|&gt;</span> </span>
+<span id="cb15-185"><a href="#cb15-185" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_split</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">,"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-186"><a href="#cb15-186" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(str_squish) <span class="sc">|&gt;</span></span>
+<span id="cb15-187"><a href="#cb15-187" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) <span class="fu">data.table</span>(<span class="st">"reason"</span> <span class="ot">=</span> x)) <span class="sc">|&gt;</span></span>
+<span id="cb15-188"><a href="#cb15-188" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"id"</span>)</span>
+<span id="cb15-189"><a href="#cb15-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-190"><a href="#cb15-190" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> p4[<span class="fu">which</span>(reason <span class="sc">!=</span> <span class="st">""</span>), by <span class="ot">=</span> reason, .(<span class="at">N =</span> id <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
+<span id="cb15-191"><a href="#cb15-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-192"><a href="#cb15-192" aria-hidden="true" tabindex="-1"></a>p4<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p4<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p4<span class="sc">$</span>N)</span>
+<span id="cb15-193"><a href="#cb15-193" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-194"><a href="#cb15-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-195"><a href="#cb15-195" aria-hidden="true" tabindex="-1"></a><span class="fu">## Which continent are you based in?</span></span>
 <span id="cb15-196"><a href="#cb15-196" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-197"><a href="#cb15-197" aria-hidden="true" tabindex="-1"></a>p5<span class="sc">$</span>Continent <span class="ot">&lt;-</span> p5<span class="sc">$</span>Continent <span class="sc">|&gt;</span> <span class="fu">str_replace_na</span>(<span class="st">"Unknown"</span>)</span>
-<span id="cb15-198"><a href="#cb15-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a>p5<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p5<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p5<span class="sc">$</span>N)</span>
-<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-199"><a href="#cb15-199" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-200"><a href="#cb15-200" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> df_1[, by <span class="ot">=</span> Continent, .N]</span>
+<span id="cb15-201"><a href="#cb15-201" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-202"><a href="#cb15-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?</span></span>
+<span id="cb15-203"><a href="#cb15-203" aria-hidden="true" tabindex="-1"></a>p5<span class="sc">$</span>Continent <span class="ot">&lt;-</span> p5<span class="sc">$</span>Continent <span class="sc">|&gt;</span> <span class="fu">str_replace_na</span>(<span class="st">"Unknown"</span>)</span>
 <span id="cb15-204"><a href="#cb15-204" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> df_1[, by <span class="ot">=</span> PreferenceToUse, .N]</span>
-<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a>p6[<span class="fu">which</span>(PreferenceToUse <span class="sc">==</span> <span class="st">""</span>)]<span class="sc">$</span>PreferenceToUse <span class="ot">=</span> <span class="st">"Unknown"</span></span>
-<span id="cb15-211"><a href="#cb15-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-212"><a href="#cb15-212" aria-hidden="true" tabindex="-1"></a>p6<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p6<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p6<span class="sc">$</span>N)</span>
-<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a><span class="fu">## Merge data table list</span></span>
-<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a>    <span class="st">"What is your main target?"</span>                                <span class="ot">=</span> p1,</span>
-<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which techniques do you use?"</span>                             <span class="ot">=</span> p2,</span>
-<span id="cb15-223"><a href="#cb15-223" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which analysis do you use or would like to do?"</span>           <span class="ot">=</span> p3,</span>
-<span id="cb15-224"><a href="#cb15-224" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If you never or rarely use Galaxy, what are the reasons?"</span> <span class="ot">=</span> p4,</span>
-<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Survey answer by continent"</span>                               <span class="ot">=</span> p5,</span>
-<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?"</span> <span class="ot">=</span> p6</span>
-<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) {</span>
-<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a>        <span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ylabel"</span>, <span class="st">"N"</span>, <span class="st">"Prop"</span>)</span>
-<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a>        x <span class="ot">&lt;-</span> x[<span class="fu">order</span>(<span class="sc">-</span>N)]</span>
-<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a>        x<span class="sc">$</span>label <span class="ot">&lt;-</span> x<span class="sc">$</span>Prop <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> scales<span class="sc">::</span><span class="fu">percent</span>()</span>
+<span id="cb15-205"><a href="#cb15-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-206"><a href="#cb15-206" aria-hidden="true" tabindex="-1"></a>p5<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p5<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p5<span class="sc">$</span>N)</span>
+<span id="cb15-207"><a href="#cb15-207" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-208"><a href="#cb15-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-209"><a href="#cb15-209" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?</span></span>
+<span id="cb15-210"><a href="#cb15-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-213"><a href="#cb15-213" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-214"><a href="#cb15-214" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> df_1[, by <span class="ot">=</span> PreferenceToUse, .N]</span>
+<span id="cb15-215"><a href="#cb15-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-216"><a href="#cb15-216" aria-hidden="true" tabindex="-1"></a>p6[<span class="fu">which</span>(PreferenceToUse <span class="sc">==</span> <span class="st">""</span>)]<span class="sc">$</span>PreferenceToUse <span class="ot">=</span> <span class="st">"Unknown"</span></span>
+<span id="cb15-217"><a href="#cb15-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-218"><a href="#cb15-218" aria-hidden="true" tabindex="-1"></a>p6<span class="sc">$</span>Prop <span class="ot">&lt;-</span> p6<span class="sc">$</span>N <span class="sc">/</span> <span class="fu">sum</span>(p6<span class="sc">$</span>N)</span>
+<span id="cb15-219"><a href="#cb15-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-220"><a href="#cb15-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-221"><a href="#cb15-221" aria-hidden="true" tabindex="-1"></a><span class="fu">## Merge data table list</span></span>
+<span id="cb15-222"><a href="#cb15-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-225"><a href="#cb15-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-226"><a href="#cb15-226" aria-hidden="true" tabindex="-1"></a>df_plot <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb15-227"><a href="#cb15-227" aria-hidden="true" tabindex="-1"></a>    <span class="st">"What is your main target?"</span>                                <span class="ot">=</span> p1,</span>
+<span id="cb15-228"><a href="#cb15-228" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which techniques do you use?"</span>                             <span class="ot">=</span> p2,</span>
+<span id="cb15-229"><a href="#cb15-229" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Which analysis do you use or would like to do?"</span>           <span class="ot">=</span> p3,</span>
+<span id="cb15-230"><a href="#cb15-230" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If you never or rarely use Galaxy, what are the reasons?"</span> <span class="ot">=</span> p4,</span>
+<span id="cb15-231"><a href="#cb15-231" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Survey answer by continent"</span>                               <span class="ot">=</span> p5,</span>
+<span id="cb15-232"><a href="#cb15-232" aria-hidden="true" tabindex="-1"></a>    <span class="st">"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?"</span> <span class="ot">=</span> p6</span>
+<span id="cb15-233"><a href="#cb15-233" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-234"><a href="#cb15-234" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb15-235"><a href="#cb15-235" aria-hidden="true" tabindex="-1"></a>    <span class="fu">lapply</span>(<span class="cf">function</span>(x) {</span>
 <span id="cb15-236"><a href="#cb15-236" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(x)</span>
-<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">|&gt;</span></span>
-<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"question"</span>)</span>
-<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Figure</span></span>
-<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load plotting `libraries`</span></span>
-<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggh4x)</span>
+<span id="cb15-237"><a href="#cb15-237" aria-hidden="true" tabindex="-1"></a>        <span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"ylabel"</span>, <span class="st">"N"</span>, <span class="st">"Prop"</span>)</span>
+<span id="cb15-238"><a href="#cb15-238" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-239"><a href="#cb15-239" aria-hidden="true" tabindex="-1"></a>        x <span class="ot">&lt;-</span> x[<span class="fu">order</span>(<span class="sc">-</span>N)]</span>
+<span id="cb15-240"><a href="#cb15-240" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-241"><a href="#cb15-241" aria-hidden="true" tabindex="-1"></a>        x<span class="sc">$</span>label <span class="ot">&lt;-</span> x<span class="sc">$</span>Prop <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> scales<span class="sc">::</span><span class="fu">percent</span>()</span>
+<span id="cb15-242"><a href="#cb15-242" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-243"><a href="#cb15-243" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(x)</span>
+<span id="cb15-244"><a href="#cb15-244" aria-hidden="true" tabindex="-1"></a>    }) <span class="sc">|&gt;</span></span>
+<span id="cb15-245"><a href="#cb15-245" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbindlist</span>(<span class="at">idcol =</span> <span class="st">"question"</span>)</span>
+<span id="cb15-246"><a href="#cb15-246" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-247"><a href="#cb15-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-248"><a href="#cb15-248" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Figure</span></span>
+<span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a><span class="fu">### Load plotting `libraries` {.unnumbered}</span></span>
 <span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shadowtext)</span>
-<span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(paletteer)</span>
-<span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extrafont)</span>
-<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plot</span></span>
-<span id="cb15-260"><a href="#cb15-260" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>question2 <span class="ot">&lt;-</span> df_plot<span class="sc">$</span>question <span class="sc">|&gt;</span> <span class="fu">str_wrap</span>(<span class="at">width =</span> <span class="dv">30</span>)</span>
-<span id="cb15-265"><a href="#cb15-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-266"><a href="#cb15-266" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>question2 <span class="ot">&lt;-</span> df_plot<span class="sc">$</span>question2 <span class="sc">|&gt;</span> <span class="fu">factor</span>(<span class="at">levels =</span> df_plot<span class="sc">$</span>question2 <span class="sc">|&gt;</span> <span class="fu">unique</span>())</span>
-<span id="cb15-267"><a href="#cb15-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-268"><a href="#cb15-268" aria-hidden="true" tabindex="-1"></a>gr <span class="ot">&lt;-</span> df_plot <span class="sc">|&gt;</span></span>
-<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> <span class="fu">reorder_within</span>(ylabel, N, question2))) <span class="sc">+</span></span>
-<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.65</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop), <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">stroke =</span> .<span class="dv">25</span>, <span class="at">color =</span> <span class="st">"grey25"</span>) <span class="sc">+</span></span>
-<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">75</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop), <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">linewidth =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.31</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop, <span class="at">color =</span> Prop), <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">stroke =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
-<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_shadowtext</span>(<span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> .<span class="dv">5</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">4.5</span>),</span>
-<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a>                    <span class="at">bg.r =</span> .<span class="dv">05</span>, <span class="at">bg.color =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_reordered</span>() <span class="sc">+</span></span>
-<span id="cb15-280"><a href="#cb15-280" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
-<span id="cb15-281"><a href="#cb15-281" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">123</span>), </span>
-<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), </span>
-<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a>                       <span class="at">minor_breaks =</span> <span class="fu">c</span>(<span class="fl">17.5</span>, <span class="fl">37.5</span>, <span class="fl">62.5</span>, <span class="fl">87.5</span>, <span class="fl">112.5</span>)) <span class="sc">+</span></span>
-<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid2</span>(<span class="fu">vars</span>(question2), <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
-<span id="cb15-286"><a href="#cb15-286" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-287"><a href="#cb15-287" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_stepsn</span>(<span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">"ggthemes::Red-Blue Diverging"</span>, <span class="dv">5</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
-<span id="cb15-288"><a href="#cb15-288" aria-hidden="true" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">4</span>, .<span class="dv">6</span>, .<span class="dv">8</span>),</span>
-<span id="cb15-289"><a href="#cb15-289" aria-hidden="true" tabindex="-1"></a>                      <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb15-290"><a href="#cb15-290" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
-<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a>                      <span class="at">guide =</span> <span class="fu">guide_colorsteps</span>(<span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="dv">12</span>, <span class="st">"lines"</span>), </span>
-<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">barheight =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>))) <span class="sc">+</span></span>
-<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_stepsn</span>(<span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">"ggthemes::Red-Blue Diverging"</span>, <span class="dv">5</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
-<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">4</span>, .<span class="dv">6</span>, .<span class="dv">8</span>),</span>
-<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scale_fill_gradient(low = "#4E79A7" |&gt; lighten(.25), high = "#E15759" |&gt; darken(.3)) +</span></span>
-<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scale_color_gradient(low = "#4E79A7" |&gt; lighten(.25), high = "#E15759" |&gt; darken(.3)) +</span></span>
-<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a>        <span class="co"># legend.position.inside = TRUE,</span></span>
-<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Calibri"</span>),</span>
-<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.clip =</span> <span class="st">"off"</span>,</span>
-<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text.y.right =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">angle=</span><span class="dv">0</span>, <span class="at">vjust=</span>.<span class="dv">5</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
-<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">5</span>)),</span>
-<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey85"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>),</span>
-<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey85"</span>),</span>
-<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey85"</span>),</span>
-<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-323"><a href="#cb15-323" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">lineend =</span> <span class="st">"round"</span>),</span>
-<span id="cb15-324"><a href="#cb15-324" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">lineend =</span> <span class="st">"round"</span>),</span>
-<span id="cb15-325"><a href="#cb15-325" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-326"><a href="#cb15-326" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>),</span>
-<span id="cb15-327"><a href="#cb15-327" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
-<span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of Responses"</span>, <span class="at">fill =</span> <span class="st">"Proportion"</span>)</span>
-<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a>gr</span>
-<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-254"><a href="#cb15-254" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-255"><a href="#cb15-255" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggh4x)</span>
+<span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-258"><a href="#cb15-258" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shadowtext)</span>
+<span id="cb15-259"><a href="#cb15-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-260"><a href="#cb15-260" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb15-261"><a href="#cb15-261" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(paletteer)</span>
+<span id="cb15-262"><a href="#cb15-262" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extrafont)</span>
+<span id="cb15-263"><a href="#cb15-263" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb15-264"><a href="#cb15-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-265"><a href="#cb15-265" aria-hidden="true" tabindex="-1"></a><span class="fu">### Plot {.unnumbered}</span></span>
+<span id="cb15-266"><a href="#cb15-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-269"><a href="#cb15-269" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb15-270"><a href="#cb15-270" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>question2 <span class="ot">&lt;-</span> df_plot<span class="sc">$</span>question <span class="sc">|&gt;</span> <span class="fu">str_wrap</span>(<span class="at">width =</span> <span class="dv">30</span>)</span>
+<span id="cb15-271"><a href="#cb15-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-272"><a href="#cb15-272" aria-hidden="true" tabindex="-1"></a>df_plot<span class="sc">$</span>question2 <span class="ot">&lt;-</span> df_plot<span class="sc">$</span>question2 <span class="sc">|&gt;</span> <span class="fu">factor</span>(<span class="at">levels =</span> df_plot<span class="sc">$</span>question2 <span class="sc">|&gt;</span> <span class="fu">unique</span>())</span>
+<span id="cb15-273"><a href="#cb15-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-274"><a href="#cb15-274" aria-hidden="true" tabindex="-1"></a>gr <span class="ot">&lt;-</span> df_plot <span class="sc">|&gt;</span></span>
+<span id="cb15-275"><a href="#cb15-275" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> <span class="fu">reorder_within</span>(ylabel, N, question2))) <span class="sc">+</span></span>
+<span id="cb15-276"><a href="#cb15-276" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-277"><a href="#cb15-277" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.65</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop), <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">stroke =</span> .<span class="dv">25</span>, <span class="at">color =</span> <span class="st">"grey25"</span>) <span class="sc">+</span></span>
+<span id="cb15-278"><a href="#cb15-278" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">width =</span> .<span class="dv">75</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop), <span class="at">lineend =</span> <span class="st">"round"</span>, <span class="at">color =</span> <span class="st">"grey25"</span>, <span class="at">linewidth =</span> .<span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb15-279"><a href="#cb15-279" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">4.31</span>, <span class="fu">aes</span>(<span class="at">fill =</span> Prop, <span class="at">color =</span> Prop), <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">stroke =</span> .<span class="dv">25</span>) <span class="sc">+</span></span>
+<span id="cb15-280"><a href="#cb15-280" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-281"><a href="#cb15-281" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-282"><a href="#cb15-282" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_shadowtext</span>(<span class="fu">aes</span>(<span class="at">label =</span> label), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> .<span class="dv">5</span>, <span class="at">position =</span> <span class="fu">position_nudge</span>(<span class="at">x =</span> <span class="fl">4.5</span>),</span>
+<span id="cb15-283"><a href="#cb15-283" aria-hidden="true" tabindex="-1"></a>                    <span class="at">bg.r =</span> .<span class="dv">05</span>, <span class="at">bg.color =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb15-284"><a href="#cb15-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-285"><a href="#cb15-285" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_reordered</span>() <span class="sc">+</span></span>
+<span id="cb15-286"><a href="#cb15-286" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb15-287"><a href="#cb15-287" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">123</span>), </span>
+<span id="cb15-288"><a href="#cb15-288" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">100</span>), </span>
+<span id="cb15-289"><a href="#cb15-289" aria-hidden="true" tabindex="-1"></a>                       <span class="at">minor_breaks =</span> <span class="fu">c</span>(<span class="fl">17.5</span>, <span class="fl">37.5</span>, <span class="fl">62.5</span>, <span class="fl">87.5</span>, <span class="fl">112.5</span>)) <span class="sc">+</span></span>
+<span id="cb15-290"><a href="#cb15-290" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-291"><a href="#cb15-291" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid2</span>(<span class="fu">vars</span>(question2), <span class="at">scales =</span> <span class="st">"free_y"</span>, <span class="at">space =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb15-292"><a href="#cb15-292" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-293"><a href="#cb15-293" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_stepsn</span>(<span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">"ggthemes::Red-Blue Diverging"</span>, <span class="dv">5</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb15-294"><a href="#cb15-294" aria-hidden="true" tabindex="-1"></a>                      <span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">4</span>, .<span class="dv">6</span>, .<span class="dv">8</span>),</span>
+<span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a>                      <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a>                      <span class="at">labels =</span> scales<span class="sc">::</span>percent,</span>
+<span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a>                      <span class="at">guide =</span> <span class="fu">guide_colorsteps</span>(<span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="dv">12</span>, <span class="st">"lines"</span>), </span>
+<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a>                                               <span class="at">barheight =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>))) <span class="sc">+</span></span>
+<span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_stepsn</span>(<span class="at">colors =</span> <span class="fu">paletteer_c</span>(<span class="st">"ggthemes::Red-Blue Diverging"</span>, <span class="dv">5</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(.<span class="dv">2</span>, .<span class="dv">4</span>, .<span class="dv">6</span>, .<span class="dv">8</span>),</span>
+<span id="cb15-302"><a href="#cb15-302" aria-hidden="true" tabindex="-1"></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb15-303"><a href="#cb15-303" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb15-304"><a href="#cb15-304" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-305"><a href="#cb15-305" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scale_fill_gradient(low = "#4E79A7" |&gt; lighten(.25), high = "#E15759" |&gt; darken(.3)) +</span></span>
+<span id="cb15-306"><a href="#cb15-306" aria-hidden="true" tabindex="-1"></a>    <span class="co"># scale_color_gradient(low = "#4E79A7" |&gt; lighten(.25), high = "#E15759" |&gt; darken(.3)) +</span></span>
+<span id="cb15-307"><a href="#cb15-307" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-308"><a href="#cb15-308" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-309"><a href="#cb15-309" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb15-310"><a href="#cb15-310" aria-hidden="true" tabindex="-1"></a>        <span class="co"># legend.position.inside = TRUE,</span></span>
+<span id="cb15-311"><a href="#cb15-311" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb15-312"><a href="#cb15-312" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb15-313"><a href="#cb15-313" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Calibri"</span>),</span>
+<span id="cb15-314"><a href="#cb15-314" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-315"><a href="#cb15-315" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.clip =</span> <span class="st">"off"</span>,</span>
+<span id="cb15-316"><a href="#cb15-316" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text.y.right =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">angle=</span><span class="dv">0</span>, <span class="at">vjust=</span>.<span class="dv">5</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb15-317"><a href="#cb15-317" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-318"><a href="#cb15-318" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-319"><a href="#cb15-319" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-320"><a href="#cb15-320" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">5</span>)),</span>
+<span id="cb15-321"><a href="#cb15-321" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-322"><a href="#cb15-322" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb15-323"><a href="#cb15-323" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-324"><a href="#cb15-324" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey85"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">lineend =</span> <span class="st">"round"</span>),</span>
+<span id="cb15-325"><a href="#cb15-325" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey85"</span>),</span>
+<span id="cb15-326"><a href="#cb15-326" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-327"><a href="#cb15-327" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"grey85"</span>),</span>
+<span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">lineend =</span> <span class="st">"round"</span>),</span>
+<span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="at">lineend =</span> <span class="st">"round"</span>),</span>
+<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">20</span>),</span>
+<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
+<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb15-335"><a href="#cb15-335" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of Responses"</span>, <span class="at">fill =</span> <span class="st">"Proportion"</span>)</span>
+<span id="cb15-337"><a href="#cb15-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-338"><a href="#cb15-338" aria-hidden="true" tabindex="-1"></a>gr</span>
+<span id="cb15-339"><a href="#cb15-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
