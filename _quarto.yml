@@ -32,6 +32,9 @@ format:
     # css: sass/custom.scss
     backgroundcolor: "#F5F5F5"
 knitr:
- opts_chunk:
-   dev: svg
-   dev.args: { bg: "transparent" }
+  opts_chunk:
+    dev: svg
+    dev.args: { bg: "transparent" }
+
+execute:
+  freeze: auto

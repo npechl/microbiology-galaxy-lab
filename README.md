@@ -9,8 +9,8 @@ The website is built with [Quarto](https://quarto.org/). To run the book locally
 Once installed launch a terminal session and run: 
 
 ```bash
-quarto render .
-quarto preview .
+quarto render
+quarto preview
 ```
 
 *TODO: add any relevant R/Python libraries that need to be installed*

@@ -18,11 +18,17 @@ library(stringr)
 
 ## Input data
 
+::: {.callout-note}
+## Data source
+
+[paulzierep/microgalaxy-survey](https://github.com/paulzierep/microgalaxy-survey)
+:::
+
 ```{r}
 df <- fread("https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv")
 ```
 
-### Correct column names
+### Correct column names {.unnumbered}
 
 ```{r}
 df$V1 <- NULL
@@ -40,14 +46,14 @@ df$`Which country are you based in?` <- df$`Which country are you based in?` |>
     str_replace("England", "United Kingdom")
 ```
 
-### Add continent
+### Add continent {.unnumbered}
 
 ```{r}
 df$Continent <- df$`Which country are you based in?` |> 
     countrycode::countrycode(origin = "country.name", destination = "continent")
 ```
 
-### Columns of interest
+### Columns of interest {.unnumbered}
 
 ```{r}
 coi <- c(
@@ -218,7 +224,7 @@ df_plot <- list(
 
 ## Output Figure
 
-### Load plotting `libraries`
+### Load plotting `libraries` {.unnumbered}
 
 ```{r}
 library(ggplot2)
@@ -231,7 +237,7 @@ library(paletteer)
 library(extrafont)
 ```
 
-### Plot
+### Plot {.unnumbered}
 
 ```{r}
 df_plot$question2 <- df_plot$question |> str_wrap(width = 30)
