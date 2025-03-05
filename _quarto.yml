@@ -5,13 +5,17 @@ book:
   title: "The Microbiology Galaxy Lab"
   description: A community-driven gateway to tools, workflows, and training for reproducible and FAIR analysis of microbial data
   sidebar: 
-    background: "#F5F5F5"
+    background: "transparent"
     logo: static/microgalaxy-logo.png
     search: true
   chapters:
     - href: index.qmd
       text: Home
+    - qmd/publications.qmd
     - qmd/survey.qmd
+    - qmd/tools.qmd
+    - qmd/workflows.qmd
+    - qmd/tutorials.qmd
   page-footer: 
     border: true
     background: "#ebebeb"
@@ -23,7 +27,7 @@ book:
 format:
   html:
     theme:
-      light: cosmo
+      light: default
     fig-format: svg
     code-fold: true
     code-tools: true
