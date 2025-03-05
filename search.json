@@ -40,103 +40,293 @@
     ]
   },
   {
+    "objectID": "qmd/publications.html",
+    "href": "qmd/publications.html",
+    "title": "2  Publications",
+    "section": "",
+    "text": "2.1 Load libraries\nCode\n# install.packages(\"data.table\")\nlibrary(data.table)\n# install.packages(\"stringr\")\nlibrary(stringr)\n\nlibrary(tidytext)\n\n# install.packages(c(\"ggplot2\", \"ggrepel\", \"ggtext\", \"ggh4x\"))\nlibrary(ggplot2)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(ggh4x)\n\nlibrary(shadowtext)\n\n# install.packages(\"extrafont\")\nlibrary(extrafont)\nlibrary(packcircles)\n\nlibrary(colorspace)\n\nlibrary(patchwork)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Publications</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/publications.html#input-data",
+    "href": "qmd/publications.html#input-data",
+    "title": "2  Publications",
+    "section": "2.2 Input data",
+    "text": "2.2 Input data\n\n\nCode\nyears            &lt;- fread(\"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/results/citations/years.csv\")\nmethods          &lt;- fread(\"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/results/citations/methods.csv\")\ntarget_technical &lt;- fread(\"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/results/citations/technical_target.csv\")\ntarget_organisms &lt;- fread(\"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/results/citations/targeted_organisms.csv\")\n\nyears$year &lt;- seq(2005, 2026)\nyears &lt;- years |&gt; melt(id.vars = \"year\", value.factor = FALSE, variable.factor = FALSE)\nyears$variable &lt;- years$variable |&gt; str_to_title()\n\n\nmethods$cluster          &lt;- \"Methods\"\ntarget_organisms$cluster &lt;- \"Targetted organisms\"\ntarget_technical$cluster &lt;- \"Technical target\"\n\np0 &lt;- rbind(methods, target_organisms, target_technical)\n\ncolnames(p0) &lt;- c(\"variable\", \"counts\", \"perc\", \"cluster\")\n\np0$perc &lt;- p0$perc / 100",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Publications</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/publications.html#barplots",
+    "href": "qmd/publications.html#barplots",
+    "title": "2  Publications",
+    "section": "2.3 Barplots",
+    "text": "2.3 Barplots\n\n\nCode\ngr1 &lt;- years |&gt;\n    ggplot(aes(year, value)) +\n    \n    geom_point(aes(fill = variable), color = \"grey25\", \n               shape = 21, size = 5.3, stroke = .25, \n               position = position_dodge(width = .9)) +\n    \n    geom_col(aes(fill = variable), color = \"grey25\", \n             linewidth = .15, \n             position = position_dodge(width = .9)) +\n    \n    geom_point(aes(color = variable),\n               size = 4.65,\n               position = position_dodge(width = .9)) +\n    \n    scale_x_continuous(expand = c(0, 0)) +\n    scale_y_continuous(expand = c(0, 0), limits = c(0, 1200), breaks = seq(200, 1000, by = 200)) +\n    \n    scale_fill_manual(values = c(\"All\" = \"#4E79A7\" |&gt; lighten(.25), \"Microbial\" = \"#E15759\" |&gt; darken(.3))) +\n    scale_color_manual(values = c(\"All\" = \"#4E79A7\" |&gt; lighten(.25), \"Microbial\" = \"#E15759\" |&gt; darken(.3))) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    \n    theme(\n        legend.position = c(.15, .75),\n        legend.title = element_blank(),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\"),\n        \n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        \n        panel.grid.minor.y = element_line(linetype = \"dotted\", lineend = \"round\"),\n        \n        axis.title.x = element_text(margin = margin(t = 10)),\n        axis.title.y = element_markdown(margin = margin(r = 10))\n    ) +\n    \n    labs(x = \"Year\", y = \"**Number of publications**&lt;br&gt;citing Galaxy papers\")\n\n\ngr2 &lt;- p0 |&gt;\n    ggplot(aes(reorder_within(variable, -perc, cluster), perc)) +\n    \n    geom_point(fill = \"#4E79A7\" |&gt; lighten(.25), color = \"grey25\", \n               shape = 21, size = 6.3, stroke = .25) +\n    \n    geom_col(width = .75, fill = \"#4E79A7\" |&gt; lighten(.25), color = \"grey25\", linewidth = .15) +\n    \n    geom_point(color = \"#4E79A7\" |&gt; lighten(.25), size = 5.63) +\n    \n    scale_y_continuous(expand = c(0, 0), limits = c(0, 0.13), labels = scales::percent, breaks = seq(.01, .12, by = .02)) +\n    scale_x_reordered() +\n    \n    facet_grid2(cols = vars(cluster), space = \"free_x\", scales = \"free_x\", axes = \"all\") +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    \n    theme(\n        axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),\n        \n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        \n        panel.grid.minor.y = element_line(linetype = \"dotted\", lineend = \"round\"),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\"),\n        \n        strip.text = element_text(face = \"bold\"),\n        \n        axis.title.x = element_blank(), # element_text(margin = margin(t = 10)),\n        axis.title.y = element_markdown(margin = margin(r = 10))\n    ) +\n    \n    labs(x = \"Target\", y = \"**Percentage in the microbial related papers**&lt;br&gt;citing Galaxy papers\")\n\n\nmulti &lt;- (gr1 / gr2) + \n    plot_annotation(tag_levels = \"A\") &\n    theme(\n        plot.tag = element_text(size = 18, face = \"bold\", family = \"Calibri\"),\n        plot.background = element_rect(fill = \"transparent\", color = NA)\n    )\n\nmulti",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Publications</span>"
+    ]
+  },
+  {
     "objectID": "qmd/survey.html",
     "href": "qmd/survey.html",
-    "title": "2  Survey",
+    "title": "3  Survey",
     "section": "",
-    "text": "2.1 Load data analytics libraries\nCode\nlibrary(data.table)\nlibrary(stringr)",
+    "text": "3.1 Load data analytics libraries\nCode\nlibrary(data.table)\nlibrary(stringr)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#input-data",
     "href": "qmd/survey.html#input-data",
-    "title": "2  Survey",
-    "section": "2.2 Input data",
-    "text": "2.2 Input data\n\n\n\n\n\n\nData source\n\n\n\npaulzierep/microgalaxy-survey\n\n\n\n\nCode\ndf &lt;- fread(\"https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv\")\n\n\n\nCorrect column names\n\n\nCode\ndf$V1 &lt;- NULL\n\ndf$Timestamp &lt;- df$Timestamp |&gt; \n    str_split_i(\"\\\\ \", 1) |&gt; \n    lubridate::as_date(format = \"%d/%m/%Y\")\n\ndf$`Which country are you based in?` &lt;- df$`Which country are you based in?` |&gt;\n    str_to_title() |&gt;\n    str_split_i(\"\\\\,\", 1) |&gt;\n    str_squish() |&gt;\n    str_replace(\"Bazil\", \"Brazil\") |&gt;\n    str_replace(\"Hunagry\", \"Hungary\") |&gt;\n    str_replace(\"England\", \"United Kingdom\")\n\n\n\n\nAdd continent\n\n\nCode\ndf$Continent &lt;- df$`Which country are you based in?` |&gt; \n    countrycode::countrycode(origin = \"country.name\", destination = \"continent\")\n\n\n\n\nColumns of interest\n\n\nCode\ncoi &lt;- c(\n    \"Timestamp\", \n    \"What is your main target?\",\n    \"Which techniques do you use?\",\n    \"Which analysis do you use or would like to do?\",\n    \"Galaxy Obstacles\",\n    \"Which country are you based in?\",\n    \"Continent\",\n    \"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\"\n)\n\ndf_1 &lt;- df[, coi, with = FALSE]\n\ncolnames(df_1) = c(\n    \"Timestamp\", \n    \"MainTarget\",\n    \"Techniques\",\n    \"Analysis\",\n    \"ReasonNotUse\",\n    \"Country\",\n    \"Continent\",\n    \"PreferenceToUse\"\n)",
+    "title": "3  Survey",
+    "section": "3.2 Input data",
+    "text": "3.2 Input data\n\n\n\n\n\n\nData source\n\n\n\npaulzierep/microgalaxy-survey\n\n\n\n\nCode\ndf &lt;- fread(\"https://raw.githubusercontent.com/paulzierep/microgalaxy-survey/refs/heads/main/data/modified_answers.csv\")\n\n\n\nCorrect column names\n\n\nCode\ndf$V1 &lt;- NULL\n\ndf$Timestamp &lt;- df$Timestamp |&gt; \n    str_split_i(\"\\\\ \", 1) |&gt; \n    lubridate::as_date(format = \"%d/%m/%Y\")\n\ndf$`Which country are you based in?` &lt;- df$`Which country are you based in?` |&gt;\n    str_to_title() |&gt;\n    str_split_i(\"\\\\,\", 1) |&gt;\n    str_squish() |&gt;\n    str_replace(\"Bazil\", \"Brazil\") |&gt;\n    str_replace(\"Hunagry\", \"Hungary\") |&gt;\n    str_replace(\"England\", \"United Kingdom\")\n\n\n\n\nAdd continent\n\n\nCode\ndf$Continent &lt;- df$`Which country are you based in?` |&gt; \n    countrycode::countrycode(origin = \"country.name\", destination = \"continent\")\n\n\n\n\nColumns of interest\n\n\nCode\ncoi &lt;- c(\n    \"Timestamp\", \n    \"What is your main target?\",\n    \"Which techniques do you use?\",\n    \"Which analysis do you use or would like to do?\",\n    \"Galaxy Obstacles\",\n    \"Which country are you based in?\",\n    \"Continent\",\n    \"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\"\n)\n\ndf_1 &lt;- df[, coi, with = FALSE]\n\ncolnames(df_1) = c(\n    \"Timestamp\", \n    \"MainTarget\",\n    \"Techniques\",\n    \"Analysis\",\n    \"ReasonNotUse\",\n    \"Country\",\n    \"Continent\",\n    \"PreferenceToUse\"\n)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#what-is-your-main-target",
     "href": "qmd/survey.html#what-is-your-main-target",
-    "title": "2  Survey",
-    "section": "2.3 What is your main target?",
-    "text": "2.3 What is your main target?\n\n\nCode\np1 &lt;- df_1$MainTarget |&gt; \n    str_remove_all(\"\\\\(|Protozoa, Helminths|Plasmodium falciparum|\\\\)\") |&gt;  \n    str_to_title() |&gt;\n    str_replace(\"Viruses\", \"Virus\") |&gt;\n    str_replace(\"And Fungal Pathogens\", \"Fungal Pathogens\") |&gt;\n    str_split(\"\\\\,\") |&gt; \n    lapply(str_squish) |&gt; \n    lapply(function(x) data.table(\"target\" = x)) |&gt; \n    rbindlist(idcol = \"id\")\n\np1 &lt;- p1[which(target != \"\"), by = target, .(N = id |&gt; unique() |&gt; length())]\n\np1$group &lt;- ifelse(p1$N &gt; 1, p1$target, \"Other\")\n\np1 &lt;- p1[, by = group, .( N = N |&gt; sum())]\n\np1$Prop &lt;- p1$N / sum(p1$N)",
+    "title": "3  Survey",
+    "section": "3.3 What is your main target?",
+    "text": "3.3 What is your main target?\n\n\nCode\np1 &lt;- df_1$MainTarget |&gt; \n    str_remove_all(\"\\\\(|Protozoa, Helminths|Plasmodium falciparum|\\\\)\") |&gt;  \n    str_to_title() |&gt;\n    str_replace(\"Viruses\", \"Virus\") |&gt;\n    str_replace(\"And Fungal Pathogens\", \"Fungal Pathogens\") |&gt;\n    str_split(\"\\\\,\") |&gt; \n    lapply(str_squish) |&gt; \n    lapply(function(x) data.table(\"target\" = x)) |&gt; \n    rbindlist(idcol = \"id\")\n\np1 &lt;- p1[which(target != \"\"), by = target, .(N = id |&gt; unique() |&gt; length())]\n\np1$group &lt;- ifelse(p1$N &gt; 1, p1$target, \"Other\")\n\np1 &lt;- p1[, by = group, .( N = N |&gt; sum())]\n\np1$Prop &lt;- p1$N / sum(p1$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#which-techniques-do-you-use",
     "href": "qmd/survey.html#which-techniques-do-you-use",
-    "title": "2  Survey",
-    "section": "2.4 Which techniques do you use?",
-    "text": "2.4 Which techniques do you use?\n\n\nCode\np2 &lt;- df_1$Techniques |&gt;\n    str_to_title() |&gt;\n    str_remove(\"I Am Trying To Learn! Mostly Outsourced To Service Providers But Need To Learn As I Have Observed Inconsistent Results\") |&gt;\n    str_remove_all(\"Amplicon|\\\\/\") |&gt;\n    str_replace(\"Chip-Seq\", \"ChIP-seq\") |&gt;\n    str_replace(\"Proteomics Or Metaproteomics\", \"(Meta)Proteomics\") |&gt;\n    str_replace(\"Transcriptomics Or Metatranscriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Metatranscriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Single Organism Transcriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Md Simulations\", \"MD simulations\") |&gt;\n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"technique\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\n\np2 &lt;- p2[which(technique != \"\"), by = technique, .(N = id |&gt; unique() |&gt; length())]\n\np2$group &lt;- ifelse(p2$N &gt; 1, p2$technique, \"Other\")\n\np2 &lt;- p2[, by = group, .( N = N |&gt; sum())]\n\np2$Prop &lt;- p2$N / sum(p2$N)",
+    "title": "3  Survey",
+    "section": "3.4 Which techniques do you use?",
+    "text": "3.4 Which techniques do you use?\n\n\nCode\np2 &lt;- df_1$Techniques |&gt;\n    str_to_title() |&gt;\n    str_remove(\"I Am Trying To Learn! Mostly Outsourced To Service Providers But Need To Learn As I Have Observed Inconsistent Results\") |&gt;\n    str_remove_all(\"Amplicon|\\\\/\") |&gt;\n    str_replace(\"Chip-Seq\", \"ChIP-seq\") |&gt;\n    str_replace(\"Proteomics Or Metaproteomics\", \"(Meta)Proteomics\") |&gt;\n    str_replace(\"Transcriptomics Or Metatranscriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Metatranscriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Single Organism Transcriptomics\", \"(Meta)Transcriptomics\") |&gt;\n    str_replace(\"Md Simulations\", \"MD simulations\") |&gt;\n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"technique\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\n\np2 &lt;- p2[which(technique != \"\"), by = technique, .(N = id |&gt; unique() |&gt; length())]\n\np2$group &lt;- ifelse(p2$N &gt; 1, p2$technique, \"Other\")\n\np2 &lt;- p2[, by = group, .( N = N |&gt; sum())]\n\np2$Prop &lt;- p2$N / sum(p2$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#which-analysis-do-you-use-or-would-like-to-do",
     "href": "qmd/survey.html#which-analysis-do-you-use-or-would-like-to-do",
-    "title": "2  Survey",
-    "section": "2.5 Which analysis do you use or would like to do?",
-    "text": "2.5 Which analysis do you use or would like to do?\n\n\nCode\np3 &lt;- df_1$Analysis |&gt;\n    str_to_title() |&gt;\n    str_replace(\"Gwas\", \"GWAS\") |&gt;\n    str_replace(\"Mag\", \"MAG\") |&gt;\n    str_replace(\"Snp\", \"SNP\") |&gt;\n    str_replace(\"Mlst\", \"MLST\") |&gt;\n    \n    str_replace(\"MAGs Building\", \"Metagenome Assembled Genome (MAG) Building\") |&gt;\n    str_replace(\"SNP Identification\", \"Single Nucleotide Polymorphism (SNP) Identification\") |&gt;\n    str_replace(\"Transcriptome Assembler\", \"Transcriptome Assembly\") |&gt;\n    \n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"analysis\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\n\np3 &lt;- p3[which(analysis != \"\"), by = analysis, .(N = id |&gt; unique() |&gt; length())]\n\np3$group &lt;- ifelse(p3$N &gt; 1, p3$analysis, \"Other\")\n\np3 &lt;- p3[, by = group, .( N = N |&gt; sum())]\n\np3$Prop &lt;- p3$N / sum(p3$N)",
+    "title": "3  Survey",
+    "section": "3.5 Which analysis do you use or would like to do?",
+    "text": "3.5 Which analysis do you use or would like to do?\n\n\nCode\np3 &lt;- df_1$Analysis |&gt;\n    str_to_title() |&gt;\n    str_replace(\"Gwas\", \"GWAS\") |&gt;\n    str_replace(\"Mag\", \"MAG\") |&gt;\n    str_replace(\"Snp\", \"SNP\") |&gt;\n    str_replace(\"Mlst\", \"MLST\") |&gt;\n    \n    str_replace(\"MAGs Building\", \"Metagenome Assembled Genome (MAG) Building\") |&gt;\n    str_replace(\"SNP Identification\", \"Single Nucleotide Polymorphism (SNP) Identification\") |&gt;\n    str_replace(\"Transcriptome Assembler\", \"Transcriptome Assembly\") |&gt;\n    \n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"analysis\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\n\np3 &lt;- p3[which(analysis != \"\"), by = analysis, .(N = id |&gt; unique() |&gt; length())]\n\np3$group &lt;- ifelse(p3$N &gt; 1, p3$analysis, \"Other\")\n\np3 &lt;- p3[, by = group, .( N = N |&gt; sum())]\n\np3$Prop &lt;- p3$N / sum(p3$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#galaxy-obstacles",
     "href": "qmd/survey.html#galaxy-obstacles",
-    "title": "2  Survey",
-    "section": "2.6 Galaxy Obstacles",
-    "text": "2.6 Galaxy Obstacles\n\n\nCode\np4 &lt;- df_1$ReasonNotUse |&gt; \n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"reason\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\np4 &lt;- p4[which(reason != \"\"), by = reason, .(N = id |&gt; unique() |&gt; length())]\n\np4$Prop &lt;- p4$N / sum(p4$N)",
+    "title": "3  Survey",
+    "section": "3.6 Galaxy Obstacles",
+    "text": "3.6 Galaxy Obstacles\n\n\nCode\np4 &lt;- df_1$ReasonNotUse |&gt; \n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(x) data.table(\"reason\" = x)) |&gt;\n    rbindlist(idcol = \"id\")\n\np4 &lt;- p4[which(reason != \"\"), by = reason, .(N = id |&gt; unique() |&gt; length())]\n\np4$Prop &lt;- p4$N / sum(p4$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#which-continent-are-you-based-in",
     "href": "qmd/survey.html#which-continent-are-you-based-in",
-    "title": "2  Survey",
-    "section": "2.7 Which continent are you based in?",
-    "text": "2.7 Which continent are you based in?\n\n\nCode\np5 &lt;- df_1[, by = Continent, .N]\n\n\np5$Continent &lt;- p5$Continent |&gt; str_replace_na(\"Unknown\")\n\n\np5$Prop &lt;- p5$N / sum(p5$N)",
+    "title": "3  Survey",
+    "section": "3.7 Which continent are you based in?",
+    "text": "3.7 Which continent are you based in?\n\n\nCode\np5 &lt;- df_1[, by = Continent, .N]\n\n\np5$Continent &lt;- p5$Continent |&gt; str_replace_na(\"Unknown\")\n\n\np5$Prop &lt;- p5$N / sum(p5$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#if-the-tools-platforms-or-databases-from-the-previous-question-could-be-deployed-in-galaxy-would-use-prefer-to-use-in-there",
     "href": "qmd/survey.html#if-the-tools-platforms-or-databases-from-the-previous-question-could-be-deployed-in-galaxy-would-use-prefer-to-use-in-there",
-    "title": "2  Survey",
-    "section": "2.8 If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?",
-    "text": "2.8 If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\n\n\nCode\np6 &lt;- df_1[, by = PreferenceToUse, .N]\n\np6[which(PreferenceToUse == \"\")]$PreferenceToUse = \"Unknown\"\n\np6$Prop &lt;- p6$N / sum(p6$N)",
+    "title": "3  Survey",
+    "section": "3.8 If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?",
+    "text": "3.8 If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\n\n\nCode\np6 &lt;- df_1[, by = PreferenceToUse, .N]\n\np6[which(PreferenceToUse == \"\")]$PreferenceToUse = \"Unknown\"\n\np6$Prop &lt;- p6$N / sum(p6$N)",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#merge-data-table-list",
     "href": "qmd/survey.html#merge-data-table-list",
-    "title": "2  Survey",
-    "section": "2.9 Merge data table list",
-    "text": "2.9 Merge data table list\n\n\nCode\ndf_plot &lt;- list(\n    \"What is your main target?\"                                = p1,\n    \"Which techniques do you use?\"                             = p2,\n    \"Which analysis do you use or would like to do?\"           = p3,\n    \"If you never or rarely use Galaxy, what are the reasons?\" = p4,\n    \"Survey answer by continent\"                               = p5,\n    \"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\" = p6\n    \n) |&gt;\n    lapply(function(x) {\n        \n        colnames(x) &lt;- c(\"ylabel\", \"N\", \"Prop\")\n        \n        x &lt;- x[order(-N)]\n        \n        x$label &lt;- x$Prop |&gt; round(digits = 4) |&gt; scales::percent()\n        \n        return(x)\n    }) |&gt;\n    rbindlist(idcol = \"question\")",
+    "title": "3  Survey",
+    "section": "3.9 Merge data table list",
+    "text": "3.9 Merge data table list\n\n\nCode\ndf_plot &lt;- list(\n    \"What is your main target?\"                                = p1,\n    \"Which techniques do you use?\"                             = p2,\n    \"Which analysis do you use or would like to do?\"           = p3,\n    \"If you never or rarely use Galaxy, what are the reasons?\" = p4,\n    \"Survey answer by continent\"                               = p5,\n    \"If the tools, platforms or databases from the previous question could be deployed in Galaxy would use prefer to use in there?\" = p6\n    \n) |&gt;\n    lapply(function(x) {\n        \n        colnames(x) &lt;- c(\"ylabel\", \"N\", \"Prop\")\n        \n        x &lt;- x[order(-N)]\n        \n        x$label &lt;- x$Prop |&gt; round(digits = 4) |&gt; scales::percent()\n        \n        return(x)\n    }) |&gt;\n    rbindlist(idcol = \"question\")",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
     ]
   },
   {
     "objectID": "qmd/survey.html#output-figure",
     "href": "qmd/survey.html#output-figure",
-    "title": "2  Survey",
-    "section": "2.10 Output Figure",
-    "text": "2.10 Output Figure\n\nLoad plotting libraries\n\n\nCode\nlibrary(ggplot2)\nlibrary(ggh4x)\n\nlibrary(shadowtext)\n\nlibrary(tidytext)\nlibrary(paletteer)\nlibrary(extrafont)\n\n\n\n\nPlot\n\n\nCode\ndf_plot$question2 &lt;- df_plot$question |&gt; str_wrap(width = 30)\n\ndf_plot$question2 &lt;- df_plot$question2 |&gt; factor(levels = df_plot$question2 |&gt; unique())\n\ngr &lt;- df_plot |&gt;\n    ggplot(aes(x = N, y = reorder_within(ylabel, N, question2))) +\n    \n    geom_point(size = 4.65, aes(fill = Prop), shape = 21, stroke = .25, color = \"grey25\") +\n    geom_col(width = .75, aes(fill = Prop), lineend = \"round\", color = \"grey25\", linewidth = .15) +\n    geom_point(size = 4.31, aes(fill = Prop, color = Prop), shape = 21, stroke = .25) +\n    \n    \n    geom_shadowtext(aes(label = label), size = 3, hjust = 0, vjust = .5, position = position_nudge(x = 4.5),\n                    bg.r = .05, bg.color = \"white\", color = \"black\") +\n\n    scale_y_reordered() +\n    scale_x_continuous(expand = c(0, 0), \n                       limits = c(0, 123), \n                       breaks = c(10, 25, 50, 75, 100), \n                       minor_breaks = c(17.5, 37.5, 62.5, 87.5, 112.5)) +\n    \n    facet_grid2(vars(question2), scales = \"free_y\", space = \"free_y\") +\n    \n    scale_fill_stepsn(colors = paletteer_c(\"ggthemes::Red-Blue Diverging\", 5, direction = -1),\n                      breaks = c(.2, .4, .6, .8),\n                      limits = c(0, 1),\n                      labels = scales::percent,\n                      guide = guide_colorsteps(barwidth = unit(12, \"lines\"), \n                                               barheight = unit(.5, \"lines\"))) +\n    \n    scale_color_stepsn(colors = paletteer_c(\"ggthemes::Red-Blue Diverging\", 5, direction = -1),\n                       breaks = c(.2, .4, .6, .8),\n                       limits = c(0, 1),\n                       guide = \"none\") +\n    \n    # scale_fill_gradient(low = \"#4E79A7\" |&gt; lighten(.25), high = \"#E15759\" |&gt; darken(.3)) +\n    # scale_color_gradient(low = \"#4E79A7\" |&gt; lighten(.25), high = \"#E15759\" |&gt; darken(.3)) +\n    \n    theme_minimal() +\n    theme(\n        # legend.position.inside = TRUE,\n        legend.position = \"bottom\",\n        legend.title.position = \"top\",\n        legend.title = element_text(family = \"Calibri\"),\n        \n        strip.clip = \"off\",\n        strip.text.y.right = element_text(face = \"bold\", angle=0, vjust=.5, hjust = 0),\n        strip.background = element_blank(),\n        \n        axis.title.y = element_blank(),\n        axis.title.x = element_text(margin = margin(t = 5)),\n        \n        panel.grid.major.y = element_blank(),\n        \n        panel.grid.minor.x = element_line(color = \"grey85\", linetype = \"dotted\", lineend = \"round\"),\n        panel.grid.major.x = element_line(color = \"grey85\"),\n        \n        panel.background = element_rect(fill = NA, color = \"grey85\"),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\"),\n        \n        plot.margin = margin(20, 20, 20, 20),\n        plot.background = element_rect(fill = \"transparent\", color = NA)\n    ) +\n    \n    labs(x = \"Number of Responses\", fill = \"Proportion\")\n\ngr",
+    "title": "3  Survey",
+    "section": "3.10 Output Figure",
+    "text": "3.10 Output Figure\n\nLoad plotting libraries\n\n\nCode\nlibrary(ggplot2)\nlibrary(ggh4x)\n\nlibrary(shadowtext)\n\nlibrary(tidytext)\nlibrary(paletteer)\nlibrary(extrafont)\n\n\n\n\nPlot\n\n\nCode\ndf_plot$question2 &lt;- df_plot$question |&gt; str_wrap(width = 30)\n\ndf_plot$question2 &lt;- df_plot$question2 |&gt; factor(levels = df_plot$question2 |&gt; unique())\n\ngr &lt;- df_plot |&gt;\n    ggplot(aes(x = N, y = reorder_within(ylabel, N, question2))) +\n    \n    geom_point(size = 4.65, aes(fill = Prop), shape = 21, stroke = .25, color = \"grey25\") +\n    geom_col(width = .75, aes(fill = Prop), lineend = \"round\", color = \"grey25\", linewidth = .15) +\n    geom_point(size = 4.31, aes(fill = Prop, color = Prop), shape = 21, stroke = .25) +\n    \n    \n    geom_shadowtext(aes(label = label), size = 3, hjust = 0, vjust = .5, position = position_nudge(x = 4.5),\n                    bg.r = .05, bg.color = \"white\", color = \"black\") +\n\n    scale_y_reordered() +\n    scale_x_continuous(expand = c(0, 0), \n                       limits = c(0, 123), \n                       breaks = c(10, 25, 50, 75, 100), \n                       minor_breaks = c(17.5, 37.5, 62.5, 87.5, 112.5)) +\n    \n    facet_grid2(vars(question2), scales = \"free_y\", space = \"free_y\") +\n    \n    scale_fill_stepsn(colors = paletteer_c(\"ggthemes::Red-Blue Diverging\", 5, direction = -1),\n                      breaks = c(.2, .4, .6, .8),\n                      limits = c(0, 1),\n                      labels = scales::percent,\n                      guide = guide_colorsteps(barwidth = unit(12, \"lines\"), \n                                               barheight = unit(.5, \"lines\"))) +\n    \n    scale_color_stepsn(colors = paletteer_c(\"ggthemes::Red-Blue Diverging\", 5, direction = -1),\n                       breaks = c(.2, .4, .6, .8),\n                       limits = c(0, 1),\n                       guide = \"none\") +\n    \n    # scale_fill_gradient(low = \"#4E79A7\" |&gt; lighten(.25), high = \"#E15759\" |&gt; darken(.3)) +\n    # scale_color_gradient(low = \"#4E79A7\" |&gt; lighten(.25), high = \"#E15759\" |&gt; darken(.3)) +\n    \n    theme_minimal() +\n    theme(\n        # legend.position.inside = TRUE,\n        legend.position = \"bottom\",\n        legend.title.position = \"top\",\n        legend.title = element_text(family = \"Calibri\"),\n        \n        strip.clip = \"off\",\n        strip.text.y.right = element_text(face = \"bold\", angle=0, vjust=.5, hjust = 0),\n        strip.background = element_blank(),\n        \n        axis.title.y = element_blank(),\n        axis.title.x = element_text(margin = margin(t = 5)),\n        \n        panel.grid.major.y = element_blank(),\n        \n        panel.grid.minor.x = element_line(color = \"grey85\", linetype = \"dotted\", lineend = \"round\"),\n        panel.grid.major.x = element_line(color = \"grey85\"),\n        \n        panel.background = element_rect(fill = NA, color = \"grey85\"),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\"),\n        \n        plot.margin = margin(20, 20, 20, 20),\n        plot.background = element_rect(fill = \"transparent\", color = NA)\n    ) +\n    \n    labs(x = \"Number of Responses\", fill = \"Proportion\")\n\ngr",
     "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Survey</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Survey</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html",
+    "href": "qmd/tools.html",
+    "title": "4  Galaxy Tool Suites",
+    "section": "",
+    "text": "4.1 Load libraries\nCode\n# install.packages(\"data.table\")\nlibrary(data.table)\n# install.packages(\"stringr\")\nlibrary(stringr)\n\n# install.packages(c(\"ggplot2\", \"ggrepel\", \"ggtext\", \"ggh4x\"))\nlibrary(ggplot2)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(ggh4x)\n\n# install.packages(c(\"extrafont\", \"paletteer\", \"colorspace\"))\nlibrary(extrafont)\nlibrary(paletteer)\nlibrary(colorspace)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html#load-input-dataset",
+    "href": "qmd/tools.html#load-input-dataset",
+    "title": "4  Galaxy Tool Suites",
+    "section": "4.2 Load input dataset",
+    "text": "4.2 Load input dataset",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html#tool-availability-graph-heatmap",
+    "href": "qmd/tools.html#tool-availability-graph-heatmap",
+    "title": "4  Galaxy Tool Suites",
+    "section": "4.3 Tool Availability graph: Heatmap",
+    "text": "4.3 Tool Availability graph: Heatmap\n\n4.3.1 Extract availability information\n\n\nCode\nindex &lt;- tools_dt |&gt; colnames() |&gt; str_subset(\"Number of tools on\")\n\navailability &lt;- tools_dt[, c(\"Suite ID\", \"EDAM reduced topics\", index), with = FALSE] |&gt; unique()\n\ncolnames(availability) &lt;- availability |&gt; \n    colnames() |&gt; \n    str_remove_all(\"Number\\\\ of\\\\ tools\\\\ on\") |&gt; \n    str_squish()\n\n\n\n\n4.3.2 Filter out duplicates\n\n\nCode\nindex &lt;- which(availability$`Suite ID` == \"srst2\" & availability$`EDAM reduced topics` == \"\")\n\navailability &lt;- availability[-index]\n\n\n\n\n4.3.3 Hierarchical clustering\n\n\nCode\nmm &lt;- availability[, -c(1, 2)] |&gt; as.matrix(rownames = availability$`Suite ID`)\n\nmm_c &lt;- mm |&gt; dist(method = \"manhattan\") |&gt; hclust(method = \"ward.D2\")\nmm_r &lt;- t(mm) |&gt; dist(method = \"manhattan\") |&gt; hclust(method = \"ward.D2\")\n\n\n\n\n4.3.4 Construct plotting data\n\n\nCode\nd &lt;- availability |&gt; melt(id.vars = c(\"Suite ID\", \"EDAM reduced topics\"), variable.factor = FALSE, value.factor = FALSE)\nd &lt;- d[which(value &gt;= 1)]\n\nd$`Suite ID` &lt;- d$`Suite ID` |&gt; factor(levels = mm_c$labels[mm_c$order |&gt; rev()])\nd$variable   &lt;- d$variable |&gt; factor(levels = mm_r$labels[mm_r$order |&gt; rev()])\n\nd$fct &lt;- ifelse(d$variable |&gt; str_detect(\"UseGalaxy\"), \"UseGalaxy\", \"vOther\")\n\nindex &lt;- d[which(fct == \"UseGalaxy\")][[1]] |&gt; unique()\n\np  &lt;- d[which(`Suite ID` %in% index)]\np2 &lt;- p |&gt; tidyr::separate_rows(\"EDAM reduced topics\", sep = \",\") |&gt; setDT()\n\np2$`EDAM reduced topics` &lt;- p2$`EDAM reduced topics` |&gt; str_squish()\np2$`EDAM reduced topics` &lt;- p2$`EDAM reduced topics` |&gt; str_wrap(width = 10)\n\nt &lt;- p2[, by = \"EDAM reduced topics\", .(N = `Suite ID` |&gt; unique() |&gt; length())]\nt &lt;- t[order(-N)]\nt &lt;- t[which(`EDAM reduced topics` != \"\"), head(.SD, 5)]\n\np2$edam_clean &lt;- ifelse(p2$`EDAM reduced topics` %in% t$`EDAM reduced topics`, p2$`EDAM reduced topics`, \"Other\")\np2$edam_clean &lt;- p2$edam_clean |&gt; factor(levels = c(t$`EDAM reduced topics`, \"Other\"))\n\n\n\n\n4.3.5 Heatmap: Top 5 EDAM Operations\n\n\nCode\nc_1 &lt;- p2[which(edam_clean != \"Other\")] |&gt; \n    \n    ggplot(aes(variable, `Suite ID`)) + \n    \n    geom_tile(aes(fill = value), color = \"grey\") + \n    \n    scale_fill_stepsn(\n        colors = c('#00429d', '#5681b9', '#93c4d2', '#ffffe0', '#ffa59e', '#dd4c65', '#93003a'),\n        guide = guide_colorsteps(barwidth = unit(14, \"lines\"), barheight = unit(.35, \"lines\")),\n        breaks = c(2, 4, 8, 16, 32, 64, 128),\n        transform = \"log2\"\n    ) +\n    \n    facet_grid(cols = vars(fct), rows = vars(edam_clean), scales = \"free\", space = \"free\") +\n    \n    scale_y_discrete(expand = c(0, 0)) +\n    scale_x_discrete(expand = c(0, 0)) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    \n    theme(\n        legend.position = \"bottom\",\n        legend.title.position = \"top\",\n        \n        axis.text.x = element_text(angle = 45, hjust = 1),\n        axis.text.y = element_text(size = 6),\n        \n        axis.title.x = element_markdown(),\n        \n        panel.border = element_rect(fill = NA, color = \"grey25\"),\n        axis.ticks.x = element_line(lineend = \"round\", color = \"grey25\"),\n        \n        strip.text.x = element_blank(),\n        strip.text.y = element_text(face = \"bold\", angle = 0, hjust = 0),\n        \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(linetype = \"dashed\", lineend = \"round\", linewidth = .25),\n        \n        plot.margin = margin(10, 10, 10, 10)\n    ) +\n    \n    labs(y = \"Galaxy Tool Suites\", x = \"Availability of Tool Suites Across **Servers**\", fill = \"No. of Tools\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html#edam-operation-scatter-plot",
+    "href": "qmd/tools.html#edam-operation-scatter-plot",
+    "title": "4  Galaxy Tool Suites",
+    "section": "4.4 EDAM operation: Scatter plot",
+    "text": "4.4 EDAM operation: Scatter plot\n\n4.4.1 Split EDAM operation per tool\n\n\nCode\ndf2 = tools_dt |&gt; tidyr::separate_rows(\"EDAM reduced operations\", sep = \",\") |&gt; setDT()\n\nxvar &lt;- \"Suite runs (last 5 years) on main servers\"\nyvar &lt;- \"Suite users (last 5 years) on main servers\"\n    \ndf2$runs  &lt;- df2[[ xvar ]]\ndf2$users &lt;- df2[[ yvar ]]\n\n\n\n\n4.4.2 Remove empty tools\n\n\nCode\ndf2 = df2[which(runs != 0 & users != 0)]\n\n\n\n\n4.4.3 Clean EDAM operation (no superclasses) column\n\n\nCode\ndf2$`EDAM reduced operations` = df2$`EDAM reduced operations` |&gt; str_squish()\ndf2$`EDAM reduced operations` = ifelse(df2$`EDAM reduced operations` == \"\", \"No Operation\", df2$`EDAM reduced operations`)\n\n\n\n\n4.4.4 Find most top EDAM operations\n\n\nCode\nst = df2[, by = `EDAM reduced operations`, .(N = `Suite ID` |&gt; unique() |&gt; length())]\nst = st[order(-N)]\nst = st[which(`EDAM reduced operations` != \"No Operation\")]\n\ndf2$`EDAM reduced operations` &lt;- df2$`EDAM reduced operations` |&gt; factor(levels = c(st$`EDAM reduced operations`, \"No Operation\"))\n\ndf2 &lt;- df2[order(`Suite ID`, -`EDAM reduced operations`)]\ndf2 &lt;- df2[, by = `Suite ID`, head(.SD, 1)]\n\n\n\n\n4.4.5 Keep only necessary columns\n\n\nCode\ndf2 = df2[, c(\"Suite ID\", \"runs\", \"users\", \"EDAM reduced operations\")] |&gt; unique()\n\n\n\n\n4.4.6 Define factor levels of cluster column\n\n\nCode\nst &lt;- st[1:12]\n\ndf2$cluster &lt;- ifelse(df2$`EDAM reduced operations` %in% st$`EDAM reduced operations`, df2$`EDAM reduced operations` |&gt; as.character(), \"Other\")\ndf2$cluster &lt;- df2$cluster |&gt; factor(levels = c(st$`EDAM reduced operations`, \"Other\"))\n\n\n\n\n4.4.7 gather highlighting Galaxy wrapper tools for plotting\n\n\nCode\ndf2 &lt;- df2[order(-runs, -users)]\nhg0 &lt;- df2[1:15]\n\n\n\n\n4.4.8 create graph\n\n\nCode\nncolors &lt;- df2$cluster |&gt; unique() |&gt; length()\n\nxvar &lt;- xvar |&gt; str_replace(\"Suite runs\", \"**Suite runs**\")\nyvar &lt;- yvar |&gt; str_replace(\"Suite users\", \"**Suite users**\")\n\na &lt;- df2 |&gt;\n    \n    ggplot(aes(runs, users)) +\n    \n    geom_point(\n        shape = 21, size = 2, stroke = .25, \n        aes(fill = cluster, color = cluster)\n    ) +\n    \n    geom_text_repel(\n        data = hg0, aes(label = `Suite ID`),\n        bg.r = .05, bg.color = \"grey96\", fontface = \"bold\", family = \"Calibri\", box.padding = .5,\n        segment.size = .3, max.overlaps = Inf, size = 3\n    ) +\n    \n    scale_x_continuous(\n        trans = \"log10\",  # expand = c(0, 0), \n        limits = c(1, 10000000), \n        breaks = scales::trans_breaks(\"log10\", function(x) 10^x),\n        labels = scales::trans_format(\"log10\", scales::math_format(10^.x))\n    ) +\n    \n    scale_y_continuous(\n        trans = \"log10\", # limits = c(1, 10000),\n        labels = scales::comma, # expand = c(0, 0), \n        breaks = c(.1, 1, 10, 100, 1000, 10000)\n    ) +\n    \n    scale_fill_manual(values = c(paletteer_d(\"ggsci::default_igv\", ncolors - 1), \"grey\") |&gt; lighten(.25), guide = guide_legend(nrow = 4, override.aes = list(size = 2.5))) +\n    scale_color_manual(values = c(paletteer_d(\"ggsci::default_igv\", ncolors - 1), \"grey\") |&gt; darken(.25), guide = \"none\") +\n    \n    coord_cartesian() +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    \n    theme(\n        legend.position = \"bottom\",\n        legend.title.position = \"top\",\n        legend.justification = \"left\",\n        \n        strip.text = element_markdown(),\n        \n        axis.title.x = element_markdown(margin = margin(t = 10)),\n        axis.title.y = element_markdown(margin = margin(r = 10)),\n        \n        # axis.ticks = element_line(linewidth = .3),\n        panel.grid.major = element_line(linewidth = .3, linetype = \"dashed\", lineend = \"round\", color = \"grey75\"),\n        \n        # panel.border = element_rect(linewidth = .3, fill = NA),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\")\n    ) +\n    \n    labs(x = xvar, y = yvar, fill = \"EDAM operation\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html#no.-of-tool-suites-over-time",
+    "href": "qmd/tools.html#no.-of-tool-suites-over-time",
+    "title": "4  Galaxy Tool Suites",
+    "section": "4.5 No. of Tool Suites over time",
+    "text": "4.5 No. of Tool Suites over time\n\n\nCode\nd1 &lt;- tools_dt[order(`Suite first commit date`)]\n\nd1$ypos &lt;- seq_along(d1$`Suite first commit date`)\n\nd1$year &lt;- d1$`Suite first commit date` |&gt; lubridate::year()\n\nd2 &lt;- d1[, by = year, .(N = max(ypos))]\n\nd2$year &lt;- paste0(d2$year, \"-01-01\") |&gt; lubridate::as_date()\n\nd1_p &lt;- d1 |&gt;\n    ggplot(aes(`Suite first commit date`, ypos)) +\n    geom_line(linewidth = .45, color = \"#3C3C3C\") +\n    geom_area(alpha = .25) +\n    \n    # geom_point(data = d2, aes(year, N)) +\n    scale_x_date(expand = c(0.01, 0.01)) +\n    scale_y_continuous(expand = c(0, 0), breaks = seq(50, 300, by = 50), limits = c(0, 300))+\n    theme_minimal(base_family = \"Calibri\") +\n    theme(\n        # panel.grid.major = element_line(linewidth = .45, color = \"grey85\"),\n        # panel.grid.minor = element_line(linewidth = .35),\n        \n        panel.grid.major = element_line(linewidth = .3, linetype = \"dashed\", lineend = \"round\", color = \"grey75\"),\n        \n        axis.title.x = element_markdown(margin = margin(t = 10)),\n        axis.title.y = element_markdown(margin = margin(r = 10)),\n        \n        axis.line = element_line(lineend = \"round\"),\n        axis.ticks = element_line(lineend = \"round\")\n    ) +\n    labs(y = \"Cumulative number of tool suites\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tools.html#patchwork",
+    "href": "qmd/tools.html#patchwork",
+    "title": "4  Galaxy Tool Suites",
+    "section": "4.6 Patchwork",
+    "text": "4.6 Patchwork\n\n\nCode\nlibrary(patchwork)\n\nmulti &lt;- (free(c_1) | (a / d1_p)) + \n    plot_layout(widths = c(2, 1.5)) +\n    plot_annotation(tag_levels = \"A\") &\n    theme(\n        plot.tag = element_text(face = \"bold\", family = \"Calibri\", size = 25),\n        plot.background = element_rect(fill = \"transparent\", color = NA)\n    )\n\nmulti",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Galaxy Tool Suites</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/workflows.html",
+    "href": "qmd/workflows.html",
+    "title": "5  Galaxy Tool Suites",
+    "section": "",
+    "text": "5.1 Load libraries\nCode\n# install.packages(\"data.table\")\nlibrary(data.table)\n# install.packages(\"stringr\")\nlibrary(stringr)\n\n# install.packages(c(\"ggplot2\", \"ggrepel\", \"ggtext\", \"ggh4x\"))\nlibrary(ggplot2)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(ggh4x)\n\nlibrary(shadowtext)\n\n# install.packages(\"extrafont\")\nlibrary(extrafont)\n\nlibrary(packcircles)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/workflows.html#load-input-dataset",
+    "href": "qmd/workflows.html#load-input-dataset",
+    "title": "5  Galaxy Tool Suites",
+    "section": "5.2 Load input dataset",
+    "text": "5.2 Load input dataset",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/workflows.html#extract-tool-suite-ids",
+    "href": "qmd/workflows.html#extract-tool-suite-ids",
+    "title": "5  Galaxy Tool Suites",
+    "section": "5.3 Extract Tool Suite IDs",
+    "text": "5.3 Extract Tool Suite IDs\n\n\nCode\nworkflows_dt &lt;- workflows_dt |&gt; tidyr::separate_rows(\"Tools\", sep = \",\") |&gt; setDT()\nall_tools_dt &lt;- all_tools_dt |&gt; tidyr::separate_rows(\"Tool IDs\", sep = \",\") |&gt; setDT()\n\nworkflows_dt$Tools &lt;- workflows_dt$Tools |&gt; str_squish()\nall_tools_dt$`Tool IDs` &lt;- all_tools_dt$`Tool IDs` |&gt; str_squish()\n\nindex &lt;- match(workflows_dt$Tools, all_tools_dt$`Tool IDs`)\n\nworkflows_dt$`Suite ID` &lt;- all_tools_dt[index]$`Suite ID`",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/workflows.html#workflows-coverage-plot-edam-heatmap",
+    "href": "qmd/workflows.html#workflows-coverage-plot-edam-heatmap",
+    "title": "5  Galaxy Tool Suites",
+    "section": "5.4 Workflows coverage plot (EDAM): Heatmap",
+    "text": "5.4 Workflows coverage plot (EDAM): Heatmap\n\n\nCode\ndt1 &lt;- workflows_dt |&gt; tidyr::separate_rows(\"EDAM topics\", sep = \",\") |&gt; setDT()\ndt1 &lt;- dt1 |&gt; tidyr::separate_rows(\"EDAM operations\", sep = \",\") |&gt; setDT()\n\ndt1$`EDAM topics`    &lt;- dt1$`EDAM topics` |&gt; str_squish()\ndt1$`EDAM operation` &lt;- dt1$`EDAM operation` |&gt; str_squish()\n\ndt1 &lt;- dt1[which(!is.na(`Suite ID`)), c(\"Name\", \"Suite ID\", \"EDAM topics\", \"EDAM operation\"), with = FALSE] |&gt; unique()\n\ndt1$`EDAM topics`    &lt;- ifelse(dt1$`EDAM topics` == \"\", \"Other\", dt1$`EDAM topics`) |&gt; str_wrap(15)\ndt1$`EDAM operation` &lt;- ifelse(dt1$`EDAM operation` == \"\", \"Other\", dt1$`EDAM operation`) |&gt; str_wrap(15)\n\nedam_operations &lt;- dt1[, by = `EDAM operation`, .(N = Name |&gt; unique() |&gt; length())]\nedam_topics     &lt;- dt1[, by = `EDAM topics`, .(N = Name |&gt; unique() |&gt; length())]\n\nedam_operations &lt;- edam_operations[which(`EDAM operation` != \"Other\")] \nedam_topics     &lt;- edam_topics[which(edam_topics != \"Other\")]\n\nedam_operations &lt;- edam_operations[order(-N)] |&gt; head(4)\nedam_topics     &lt;- edam_topics[order(-N)] |&gt; head(4)\n\ndt1$`EDAM topics`    &lt;- ifelse(dt1$`EDAM topics` %in% edam_topics$`EDAM topics`, dt1$`EDAM topics`, \"Other\")\ndt1$`EDAM operation` &lt;- ifelse(dt1$`EDAM operation` %in% edam_operations$`EDAM operation`, dt1$`EDAM operation`, \"Other\")\n\ndt1$`EDAM topics`    &lt;- dt1$`EDAM topics` |&gt; factor(c(edam_topics$`EDAM topics`, \"Other\")) \ndt1$`EDAM operation` &lt;- dt1$`EDAM operation` |&gt; factor(c(edam_operations$`EDAM operation`, \"Other\")) \n\n\ndt1$value &lt;- 1\n\nmm &lt;- dt1[, c(\"Name\", \"Suite ID\", \"value\"), with = FALSE] |&gt; \n    unique() |&gt; \n    dcast(Name ~ `Suite ID`, value.var = \"value\", fill = 0) |&gt; \n    as.matrix(rownames = \"Name\")\n\nhc_y &lt;- mm |&gt; dist(method = \"binary\") |&gt; hclust(method = \"ward.D2\")\nhc_x &lt;- mm |&gt; t() |&gt; dist(method = \"binary\") |&gt; hclust(method = \"ward.D2\")\n\n\ndt1$Name &lt;- dt1$Name |&gt; factor(levels = hc_y$labels[hc_y$order])\ndt1$`Suite ID` &lt;- dt1$`Suite ID` |&gt; factor(levels = hc_x$labels[hc_x$order])\n\ngr1 &lt;- dt1 |&gt;\n    ggplot(aes(`Suite ID`, Name)) +\n    geom_tile(color = \"white\") +\n    \n    scale_x_discrete(expand = c(0, 0)) +\n    scale_y_discrete(expand = c(0, 0)) +\n    \n    # facet_grid(rows = vars(edam_clean), scales = \"free\", space = \"free\") +\n    \n    # facet_nested_wrap(vars(`EDAM topic`, `EDAM operation`)) +\n    \n    facet_grid2(\n        rows = vars(`EDAM topics`),\n        cols = vars(`EDAM operation`),\n        space = \"free\",\n        scales = \"free\"\n    ) +\n    \n    coord_cartesian(clip = \"off\", expand = TRUE) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    theme(\n        axis.text.x = element_text(size = 2.5, angle = 45, hjust = 1),\n        axis.text.y = element_text(size = 6),\n        \n        axis.title.x = element_text(margin = margin(t = 10)),\n        axis.title.y = element_text(margin = margin(r = 10)),\n        \n        panel.border = element_rect(fill = NA, color = \"grey\", linewidth = .15),\n        # axis.ticks = element_line(linewidth = .3, color = \"grey\"),\n        \n        strip.text.x = element_text(face = \"bold\"),\n        strip.text.y = element_text(face = \"bold\", angle = 0, hjust = 0),\n        \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(linetype = \"dashed\", lineend = \"round\", linewidth = .35),\n        \n        plot.margin = margin(10, 10, 10, 10)\n    ) +\n    \n    labs(y = \"Workflows\", x = \"Galaxy Tool Suites\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/workflows.html#workflows-coverage-plot-source-project-heatmap",
+    "href": "qmd/workflows.html#workflows-coverage-plot-source-project-heatmap",
+    "title": "5  Galaxy Tool Suites",
+    "section": "5.5 Workflows coverage plot (Source, Project): Heatmap",
+    "text": "5.5 Workflows coverage plot (Source, Project): Heatmap\n\n\nCode\ndt1 &lt;- workflows_dt[which(!is.na(`Suite ID`)), c(\"Name\", \"Suite ID\", \"Source\", \"Projects\", \"EDAM operations\"), with = FALSE] |&gt; unique()\n\ndt1$Source   &lt;- ifelse(\n    dt1$Source == \"WorkflowHub\", \"WorkflowHub\", \n    ifelse(\n        dt1$Source == \"dev.WorkflowHub\", \"GTN\", \n        \"Public Servers\"\n    )\n)\n\ndt1$Projects &lt;- ifelse(\n    dt1$Projects == \"Intergalactic Workflow Commission (IWC)\", \"IWC\",\n    ifelse(\n        dt1$Projects == \"Galaxy Training Network\", \"GTN\", \n        \"Other Projects\"\n    )\n) |&gt; str_wrap(22)\n\ndt1$cluster &lt;- paste0(dt1$Source, \"; \", dt1$Projects)\n\ndt1$cluster &lt;- ifelse(\n    dt1$cluster == \"WorkflowHub; IWC\", \"IWC on WorkflowHub\",\n    ifelse(\n        dt1$cluster == \"WorkflowHub; Other Projects\", \"Other WorkflowHub workflows\", \n        ifelse(\n            dt1$cluster == \"Public Servers; Other Projects\", \"Public server workflows\", \n            \"Workflows related to GTN tutorials\"\n        )\n    )\n) |&gt; str_wrap(15)\n\ndt1 &lt;- dt1 |&gt; tidyr::separate_rows(\"EDAM operations\", sep = \"\\\\,\") |&gt; setDT()\n\ndt1$`EDAM operations` &lt;- dt1$`EDAM operations` |&gt; str_squish()\ndt1$`EDAM operations` &lt;- dt1$`EDAM operations` |&gt; str_wrap(15) |&gt; str_replace(\"DNA barcoding\", \"DNA\\nbarcoding\")\n\nedam_operations &lt;- dt1[, by = `EDAM operations`, .(N = Name |&gt; unique() |&gt; length())]\nedam_operations &lt;- edam_operations[order(-N)] |&gt; head(4)\n\ndt1$`EDAM operations` &lt;- ifelse(dt1$`EDAM operations` %in% edam_operations$`EDAM operations`, dt1$`EDAM operations`, \"Other\")\ndt1$`EDAM operations` &lt;- dt1$`EDAM operations` |&gt; factor(c(edam_operations$`EDAM operations`, \"Other\")) \n\ndt1$value &lt;- 1\n\nmm &lt;- dt1[, c(\"Name\", \"Suite ID\", \"value\"), with = FALSE] |&gt; \n    unique() |&gt; \n    dcast(Name ~ `Suite ID`, value.var = \"value\", fill = 0) |&gt; \n    as.matrix(rownames = \"Name\")\n\nhc_y &lt;- mm |&gt; dist(method = \"binary\") |&gt; hclust(method = \"ward.D2\")\nhc_x &lt;- mm |&gt; t() |&gt; dist(method = \"binary\") |&gt; hclust(method = \"ward.D2\")\n\n\ndt1$Name &lt;- dt1$Name |&gt; factor(levels = hc_y$labels[hc_y$order] |&gt; rev())\ndt1$`Suite ID` &lt;- dt1$`Suite ID` |&gt; factor(levels = hc_x$labels[hc_x$order])\n\n# dt1$Source &lt;- dt1$Source |&gt; factor(levels = c(\"WorkflowHub\", \"Public servers\"))\n\ngr2 &lt;- dt1 |&gt;\n    ggplot(aes(`Suite ID`, Name)) +\n    geom_tile(color = \"white\") +\n    \n    scale_x_discrete(expand = c(0, 0)) +\n    scale_y_discrete(expand = c(0, 0)) +\n    \n    # facet_grid(rows = vars(edam_clean), scales = \"free\", space = \"free\") +\n    \n    # facet_nested_wrap(vars(`EDAM topic`, `EDAM operation`)) +\n    \n    facet_grid2(\n        rows = vars(cluster),\n        cols = vars(`EDAM operations`),\n        space = \"free\",\n        scales = \"free\"\n    ) +\n    \n    coord_cartesian(clip = \"off\", expand = TRUE) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    theme(\n        axis.text.x = element_text(size = 2.5, angle = 45, hjust = 1),\n        axis.text.y = element_text(size = 6),\n        \n        axis.title.x = element_text(margin = margin(t = 10)),\n        axis.title.y = element_text(margin = margin(r = 10)),\n        \n        panel.border = element_rect(fill = NA, color = \"grey\", linewidth = .3),\n        # axis.ticks = element_line(linewidth = .3, color = \"grey\"),\n        \n        strip.text.x = element_text(face = \"bold\"),\n        strip.text.y = element_text(face = \"bold\", angle = 0, hjust = 0),\n        \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(linetype = \"dashed\", lineend = \"round\", linewidth = .15),\n        \n        plot.margin = margin(10, 10, 10, 10)\n    ) +\n    \n    labs(y = \"Workflows\", x = \"Galaxy Tool Suites\")\n\n\ndt2 &lt;- dt1[, by = Name, .(\"No. of suites\" = `Suite ID` |&gt; unique() |&gt; length())]\n\ndt2$`Perc. of suites` &lt;- dt2$`No. of suites` / (dt1$`Suite ID` |&gt; unique() |&gt; length())\n\ndt2 &lt;- dt2[order(-`No. of suites`)]\n\ngr2",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Workflows</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tutorials.html",
+    "href": "qmd/tutorials.html",
+    "title": "6  Tutorials",
+    "section": "",
+    "text": "6.1 Load libraries\nCode\n# install.packages(\"data.table\")\nlibrary(data.table)\n# install.packages(\"stringr\")\nlibrary(stringr)\n\n# install.packages(c(\"ggplot2\", \"ggrepel\", \"ggtext\", \"ggh4x\"))\nlibrary(ggplot2)\nlibrary(ggrepel)\nlibrary(ggtext)\nlibrary(ggh4x)\n\nlibrary(shadowtext)\n\n# install.packages(\"extrafont\")\nlibrary(extrafont)\n\nlibrary(packcircles)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tutorials</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tutorials.html#load-input-dataset",
+    "href": "qmd/tutorials.html#load-input-dataset",
+    "title": "6  Tutorials",
+    "section": "6.2 Load input dataset",
+    "text": "6.2 Load input dataset\n\n\nCode\n## THIS SECTION MIGHT THROUGH AN ERROR\n## THERE IS A BUG UNFORTUNATELY WITH fread FUNCTION\n## RUN ON CONSOLE IN THIS CASE\n\nmicroGalaxy_tutorials_url &lt;- \"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/docs/supplementary/supplementary_table_4.tsv\"\nmicroGalaxy_tools_url     &lt;- \"https://raw.githubusercontent.com/usegalaxy-eu/microgalaxy_paper_2025/refs/heads/main/docs/supplementary/supplementary_table_2.tsv\"\n# all_tools_url             &lt;- \"https://raw.githubusercontent.com/galaxyproject/galaxy_codex/refs/heads/main/communities/all/resources/tools.tsv\"\n\n\nmicroGalaxy_tutorials_dt &lt;- microGalaxy_tutorials_url |&gt; fread()\nmicroGalaxy_tools_dt     &lt;- microGalaxy_tools_url |&gt; fread()\n# all_tools_dt            &lt;- all_tools_url |&gt; fread()",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tutorials</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tutorials.html#compute-number-of-tools-and-number-of-microgalaxy-tools-per-tutorial",
+    "href": "qmd/tutorials.html#compute-number-of-tools-and-number-of-microgalaxy-tools-per-tutorial",
+    "title": "6  Tutorials",
+    "section": "6.3 Compute number of tools and number of microGalaxy tools per tutorial",
+    "text": "6.3 Compute number of tools and number of microGalaxy tools per tutorial\n\n\nCode\n# 1 ------------------------\n\ndt1 &lt;- microGalaxy_tutorials_dt$Tools |&gt; \n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(q) data.table(\"Tool ID\" = q)) |&gt;\n    rbindlist(idcol = \"Topic_id\")\n\ndt1$Topic &lt;- microGalaxy_tutorials_dt[dt1$Topic_id]$Topic\ndt1$Title &lt;- microGalaxy_tutorials_dt[dt1$Topic_id]$Title\n\ndt1$`EDAM topic`     &lt;- microGalaxy_tutorials_dt[dt1$Topic_id]$`EDAM topic`\ndt1$`EDAM operation` &lt;- microGalaxy_tutorials_dt[dt1$Topic_id]$`EDAM operation`\n\ntmp &lt;- microGalaxy_tools_dt$`Tool IDs` |&gt;\n    str_split(\"\\\\,\") |&gt;\n    lapply(str_squish) |&gt;\n    lapply(function(q) data.table(\"Tool ID\" = str_squish(q))) |&gt;\n    rbindlist(idcol = \"id\")\n\ntmp$`Suite ID` &lt;- microGalaxy_tools_dt[tmp$id]$`Suite ID`\n\nindex &lt;- match(dt1$`Tool ID`, tmp$`Tool ID`)\n\ndt1$`Suite ID` = tmp[index]$`Suite ID`\n\n\n\n6.3.1 Exclude unnecessary columns\n\n\nCode\nmicroGalaxy_tutorials_dt$Topic                                      &lt;- NULL\nmicroGalaxy_tutorials_dt$Link                                       &lt;- NULL\nmicroGalaxy_tutorials_dt$`Servers with precise tool versions`       &lt;- NULL\nmicroGalaxy_tutorials_dt$`Servers with tool but different versions` &lt;- NULL",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tutorials</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tutorials.html#tools-coverage-graph-heatmap",
+    "href": "qmd/tutorials.html#tools-coverage-graph-heatmap",
+    "title": "6  Tutorials",
+    "section": "6.4 Tools coverage graph: Heatmap",
+    "text": "6.4 Tools coverage graph: Heatmap\n\n\nCode\ndt1$`Suite ID` &lt;- ifelse(is.na(dt1$`Suite ID`) | dt1$`Suite ID` == \"\", \"Not Available\", dt1$`Suite ID`)\n\ndt1 &lt;- dt1[which(`Suite ID` != \"Not Available\")]\n\ndt1$value &lt;- 1\n\nmm &lt;- dt1[, c(\"Title\", \"Suite ID\", \"value\"), with = FALSE] |&gt; \n    unique() |&gt; \n    dcast(Title ~ `Suite ID`, value.var = \"value\", fill = 0) |&gt; \n    as.matrix(rownames = \"Title\")\n\n\nhc_x &lt;- mm |&gt; t() |&gt; dist(method = \"binary\") |&gt; hclust(\"ward.D2\")\nhc_y &lt;- mm |&gt; dist(method = \"binary\") |&gt; hclust(\"ward.D2\")\n\n\n# c_r &lt;- dt1[, by = Title, .(N = `Suite ID` |&gt; unique() |&gt; length())]\n# r_r &lt;- dt1[, by = `Suite ID`, .(N = Title |&gt; unique() |&gt; length())]\n\n# c_r &lt;- c_r[order(N)]\n# r_r &lt;- r_r[order(-N)]\n\ndt1$Title &lt;- dt1$Title |&gt; factor(hc_y$labels[hc_y$order] |&gt; rev())\ndt1$`Suite ID` &lt;- dt1$`Suite ID` |&gt; factor(hc_x$labels[hc_x$order] |&gt; rev())\n\na_1 &lt;- dt1 |&gt;\n    ggplot(aes(`Suite ID`, Title)) +\n    geom_tile(color = \"grey96\") +\n    \n    scale_x_discrete(expand = c(0, 0)) +\n    scale_y_discrete(expand = c(0, 0)) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    theme(\n        axis.text.x = element_text(angle = 45, hjust = 1),\n        \n        panel.border = element_rect(fill = NA, linewidth = .3),\n        axis.ticks.x = element_line(linewidth = .3),\n        \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(linetype = \"dashed\", lineend = \"round\", linewidth = .35),\n        \n        plot.margin = margin(10, 10, 10, 10)\n    ) +\n    \n    labs(y = \"Tutorials\", x = \"Galaxy Tool Suites\")\n\n\nedam_operations &lt;- dt1$`EDAM operation` |&gt;\n    str_split(\"\\\\,\") |&gt;\n    unlist() |&gt;\n    str_squish() |&gt;\n    table() |&gt;\n    as.data.table()\n\nedam_topics &lt;- dt1$`EDAM topic` |&gt;\n    str_split(\"\\\\,\") |&gt;\n    unlist() |&gt;\n    str_squish() |&gt;\n    table() |&gt;\n    as.data.table()\n\n\nedam_operations &lt;- edam_operations[order(-N)] |&gt; head(4)\nedam_topics     &lt;- edam_topics[order(-N)] |&gt; head(4)\n\n\ndt2 &lt;- dt1 |&gt; tidyr::separate_rows(\"EDAM topic\", sep = \",\") |&gt; setDT()\ndt2 &lt;- dt2 |&gt; tidyr::separate_rows(\"EDAM operation\", sep = \",\") |&gt; setDT()\n\ndt2$`EDAM topic`     &lt;- dt2$`EDAM topic` |&gt; str_squish() |&gt; str_wrap(15)\ndt2$`EDAM operation` &lt;- dt2$`EDAM operation` |&gt; str_squish() |&gt; str_wrap(15)\n\nedam_topics$V1     &lt;- edam_topics$V1 |&gt; str_wrap(15)\nedam_operations$V1 &lt;- edam_operations$V1 |&gt; str_wrap(15)\n\ndt2$`EDAM topic`     &lt;- ifelse(dt2$`EDAM topic` %in% edam_topics$V1, dt2$`EDAM topic`, \"Other\")\ndt2$`EDAM operation` &lt;- ifelse(dt2$`EDAM operation` %in% edam_operations$V1, dt2$`EDAM operation`, \"Other\")\n\ndt2$`EDAM topic`     &lt;- dt2$`EDAM topic` |&gt; factor(c(edam_topics$V1, \"Other\")) \ndt2$`EDAM operation` &lt;- dt2$`EDAM operation` |&gt; factor(c(edam_operations$V1, \"Other\")) \n\na_2 &lt;- dt2 |&gt;\n    ggplot(aes(`Suite ID`, Title)) +\n    geom_tile(color = \"white\") +\n    \n    scale_x_discrete(expand = c(0, 0)) +\n    scale_y_discrete(expand = c(0, 0)) +\n    \n    # facet_grid(rows = vars(edam_clean), scales = \"free\", space = \"free\") +\n    \n    # facet_nested_wrap(vars(`EDAM topic`, `EDAM operation`)) +\n    \n    facet_grid2(\n        rows = vars(`EDAM topic`),\n        cols = vars(`EDAM operation`),\n        space = \"free\",\n        scales = \"free\"\n    ) +\n    \n    theme_minimal(base_family = \"Calibri\") +\n    theme(\n        axis.text.x = element_text(size = 4, angle = 45, hjust = 1),\n        axis.text.y = element_text(size = 6),\n        \n        axis.title.x = element_text(margin = margin(t = 10)),\n        axis.title.y = element_text(margin = margin(r = 10)),\n        \n        panel.border = element_rect(fill = NA, color = \"grey\", linewidth = .3),\n        # axis.ticks = element_line(linewidth = .3, color = \"grey\"),\n        \n        strip.text.x = element_text(face = \"bold\"),\n        strip.text.y = element_text(face = \"bold\", angle = 0, hjust = 0),\n        \n        panel.grid.minor = element_blank(),\n        panel.grid.major = element_line(linetype = \"dashed\", lineend = \"round\", linewidth = .15),\n        \n        plot.margin = margin(10, 10, 10, 10)\n    ) +\n    \n    labs(y = \"Tutorials\", x = \"Galaxy Tool Suites\")\n\na_2",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tutorials</span>"
+    ]
+  },
+  {
+    "objectID": "qmd/tutorials.html#edam-ontology-distribution-packcircles",
+    "href": "qmd/tutorials.html#edam-ontology-distribution-packcircles",
+    "title": "6  Tutorials",
+    "section": "6.5 EDAM ontology distribution: packcircles",
+    "text": "6.5 EDAM ontology distribution: packcircles\n\n\nCode\n# ----------------------\nd1 &lt;- microGalaxy_tutorials_dt[, c(\"Title\", \"EDAM topic\"), with = FALSE] |&gt;\n    tidyr::separate_rows(\"EDAM topic\", sep = \",\") |&gt;\n    setDT()\n\nd2 &lt;- microGalaxy_tutorials_dt[, c(\"Title\", \"EDAM operation\"), with = FALSE] |&gt;\n    tidyr::separate_rows(\"EDAM operation\", sep = \",\") |&gt;\n    setDT()\n\n# ---------------------\n\nd1$`EDAM topic` = d1$`EDAM topic` |&gt; str_squish()\nd1$`EDAM topic` = ifelse(d1$`EDAM topic` == \"\", \"No Topic\", d1$`EDAM topic`)\n    \nd2$`EDAM operation` = d2$`EDAM operation` |&gt; str_squish()\nd2$`EDAM operation` = ifelse(d2$`EDAM operation` == \"\", \"No Operation\", d2$`EDAM operation`)\n\nd1 = d1[, by = `EDAM topic`, .(N = Title |&gt; unique() |&gt; length())]\nd2 = d2[, by = `EDAM operation`, .(N = Title |&gt; unique() |&gt; length())]\n\n# ------------------------------\n\nd1$`EDAM topic length`     &lt;- d1$`EDAM topic` |&gt; str_length()\nd2$`EDAM operation length` &lt;- d2$`EDAM operation` |&gt; str_length()\n\nd1 &lt;- d1[order(-N, `EDAM topic`)]\nd2 &lt;- d2[order(-N, `EDAM operation`)]\n\n# Generate the layout. \n# sizetype can be area or radius, \n# following your preference on what to be proportional to value.\n\npacking_d1 &lt;- circleProgressiveLayout(d1$N, sizetype = 'area') |&gt; circleLayoutVertices(npoints = 100) |&gt; setDT()\npacking_d2 &lt;- circleProgressiveLayout(d2$N, sizetype = 'area') |&gt; circleLayoutVertices(npoints = 100) |&gt; setDT()\n\npacking_d1$strip &lt;- d1[packing_d1$id]$`EDAM topic`\npacking_d2$strip &lt;- d2[packing_d2$id]$`EDAM operation`\n\npacking_d1$`No. of Tutorials` &lt;- d1[packing_d1$id]$N\npacking_d2$`No. of Tutorials` &lt;- d2[packing_d2$id]$N\n\npacking_d1$pack &lt;- \"EDAM topic\"\npacking_d2$pack &lt;- \"EDAM operation\"\n\nd &lt;- rbind(packing_d1, packing_d2)\n\nh &lt;- d[which(`No. of Tutorials` &gt; 2), by = .(pack, strip, `No. of Tutorials`), .(\n    x = (max(x) + min(x)) / 2,\n    y = (max(y) + min(y)) / 2\n)]\n\nh$strip &lt;- h$strip |&gt; str_wrap(width = 8)\n\nh$strip = h$strip |&gt;\n    str_replace_all(\"Phylogenetic\\ntree\", \"Phylogenetic tree\") |&gt;\n    str_replace_all(\"Box-Whisker\\nplot\", \"Box-Whisker\") |&gt;\n    str_replace_all(\"Public\\nhealth\", \"Public health\") |&gt;\n    str_replace_all(\"Nucleic\\nacid\", \"Nucleic acid\") |&gt;\n    str_replace_all(\"sequence\\nanalysis\", \"sequence analysis\")\n\nb &lt;- d |&gt;\n    ggplot(aes(x, y, group = id)) + \n    geom_polygon(aes(fill = `No. of Tutorials`), color = \"grey96\", linewidth = 1) +\n\n    # geom_text_repel(\n    #     data = h[which(`No. of Tutorials` &lt; 15)], aes(x, y, label = strip, size = `No. of Tutorials`), \n    #     inherit.aes = FALSE, max.overlaps = Inf, bg.color = \"grey96\", color = \"grey10\",\n    #     bg.r = .065, family = \"Calibri\"\n    # ) +\n        \n    geom_shadowtext(\n        data = h, aes(x, y, label = strip, size = `No. of Tutorials`),\n        inherit.aes = FALSE, bg.color = \"grey90\", color = \"grey20\", bg.r = .065,\n        family = \"Calibri\", fontface = \"bold\"\n    ) +\n    \n    scale_fill_stepsn(\n        colors = c('#00429d', '#2d58a7', '#456fb1', '#5986b9', '#6e9ec1', '#84b6c6', '#c6c6a9') |&gt; rev(),\n        guide = guide_colorsteps(\n            barwidth = unit(10, \"lines\"),\n            barheight = unit(.5, \"lines\")\n        )\n    ) +\n    \n    scale_size_continuous(range = c(3, 4), guide = \"none\") +\n    \n    facet_wrap(vars(pack), nrow = 1) +\n    theme_void(base_family = \"Calibri\") + \n    theme(\n        legend.position = \"bottom\",\n        legend.title.position = \"top\",\n        \n        strip.text = element_text(face = \"bold\")\n    ) +\n    coord_equal()",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Tutorials</span>"
     ]
   }
 ]
