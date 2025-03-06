@@ -1,12 +1,12 @@
 ---
 title: "Publications"
+lightbox: 
+    match: auto
+    effect: zoom
+    desc-position: right
 execute:
     eval: true
     warning: false
-format:
-  html:
-    fig-width: 9
-    fig-height: 10
 ---
 
 ## Load `libraries`
@@ -60,7 +60,6 @@ colnames(p0) <- c("variable", "counts", "perc", "cluster")
 p0$perc <- p0$perc / 100
 
 ```
-
 
 ## Barplots 
 
@@ -152,5 +151,13 @@ multi <- (gr1 / gr2) +
         plot.background = element_rect(fill = "transparent", color = NA)
     )
 
-multi
+ggsave(
+    plot = multi, filename = "../static/extended-figures/extended_figure_1.svg",
+    width = 9, height = 10, unit = "in"
+)
 ```
+::: {.callout-note}
+Click on the Figure for pop up.
+:::
+
+![**Citation Trends and Microbial Research Topics in Galaxy Publications.** The citations were extracted from the Galaxy Project's Google Scholar profile, with additional details retrieved using Semantic Search. (A) Annual publication trends show the total number of citations (blue) alongside those specific to microbial research (brown). (B) Breakdown of microbial-focused citations by Targeted Organisms, Technical Targets, and Methods. Categories were annotated based on predefined keywords found in the title or abstract of each publication](../static/extended-figures/extended_figure_1.svg)

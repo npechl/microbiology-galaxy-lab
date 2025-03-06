@@ -1,12 +1,12 @@
 ---
 title: "Survey"
+lightbox: 
+    match: auto
+    effect: zoom
+    desc-position: right
 execute:
     eval: true
     warning: false
-format:
-  html:
-    fig-width: 9
-    fig-height: 10
 ---
 
 ## Load data analytics `libraries`
@@ -308,5 +308,14 @@ gr <- df_plot |>
     
     labs(x = "Number of Responses", fill = "Proportion")
 
-gr
+ggsave(
+    plot = gr, filename = "../static/extended-figures/extended_figure_2.svg",
+    width = 9, height = 10, unit = "in"
+)
 ```
+
+::: {.callout-note}
+Click on the Figure for pop up.
+:::
+
+![**Survey results from the microbiology research community (March–September 2023).** Anonymous responses highlighting the main research targets, techniques, and analyses used or desired by microbial researchers. The figure also reports challenges faced by users who rarely or never use Galaxy, survey responses by continent, and preferences regarding tool deployment in Galaxy. Percentages are computed independently for each question based on the total number of responses available for that question. Additionally, some questions, such as "Which analyses do you use or would you like to do?" allowed multiple responses, meaning percentages may sum to more than 100%.](../static/extended-figures/extended_figure_2.svg)

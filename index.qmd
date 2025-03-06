@@ -52,6 +52,9 @@ Contributions are welcome! You can participate by opening an issue on the GitHub
 4. Open a draft PR and resolve any conflicts.
 5. When ready, mark the PR as **Ready for Review**.
 
-## Credit {.unnumbered}
+## Acknowledgments {.unnumbered}
 
-*TOADD*
+Engy Nasr [@EngyNasr](https://github.com/engynasr), 
+Bérénice Batut [@bebatut](bebatut), 
+Paul Zierep [@paulzierep](https://github.com/paulzierep),
+Nikos Pechlivanis [@npechl](https://github.com/npechl), ...
