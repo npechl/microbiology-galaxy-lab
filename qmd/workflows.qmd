@@ -1,5 +1,9 @@
 ---
 title: "Workflows"
+lightbox: 
+    match: auto
+    effect: zoom
+    desc-position: right
 execute:
     eval: true
     warning: false

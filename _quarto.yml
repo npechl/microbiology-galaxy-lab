@@ -17,8 +17,8 @@ book:
     - qmd/workflows.qmd
     - qmd/tutorials.qmd
   page-footer: 
-    border: true
-    background: "#ebebeb"
+    border: false
+    background: "#f9fbfeff"
     left: |
       This page is built with [**Quarto**](https://quarto.org/) and is licensed under the [**MIT License**](https://opensource.org/license/mit)
     right: |
@@ -32,9 +32,9 @@ format:
     code-fold: true
     code-tools: true
     code-block-bg: true
-    code-block-border-left: "#72876d"
+    code-block-border-left: "#f9fbfeff"
     # css: sass/custom.scss
-    backgroundcolor: "#F5F5F5"
+    backgroundcolor: "#f9fbfeff"
 knitr:
   opts_chunk:
     dev: svg
