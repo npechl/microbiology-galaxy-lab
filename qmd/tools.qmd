@@ -1,12 +1,12 @@
 ---
 title: "Galaxy Tool Suites"
+lightbox: 
+    match: auto
+    effect: zoom
+    desc-position: right
 execute:
     eval: true
     warning: false
-format:
-  html:
-    fig-width: 14
-    fig-height: 16
 ---
 
 ## Load `libraries` 
@@ -327,5 +327,14 @@ multi <- (free(c_1) | (a / d1_p)) +
         plot.background = element_rect(fill = "transparent", color = NA)
     )
 
-multi
+ggsave(
+    plot = multi, filename = "../static/extended-figures/extended_figure_3.svg",
+    width = 14, height = 16, unit = "in"
+)
 ```
+
+::: {.callout-note}
+Click on the Figure for pop up.
+:::
+
+![**Availability, usability, and growth of microbiology-related tool suites within the Galaxy ecosystem.** (A) Heatmap illustrating the availability of microbiology-related tool suites (x-axis) across various Galaxy servers (y-axis), grouped by EDAM topics. Tool suites may appear in multiple clusters, as they can be annotated with several topics. A logarithmic scale is applied for improved visualization. (B) Scatter plots showing the usage of microbiology-related tool suites over the past five years across all Galaxy main servers, categorized by their EDAM operations. The x-axis represents the total number of tool users, while the y-axis also denotes the total number of tool users (potentially correct this redundancy). (C) Cumulative number of tools added to Galaxy over time, based on the date of the first commit for each tool suite.](../static/extended-figures/extended_figure_3.svg)

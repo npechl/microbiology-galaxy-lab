@@ -3,10 +3,6 @@ title: "Workflows"
 execute:
     eval: true
     warning: false
-format:
-  html:
-    fig-width: 16
-    fig-height: 8
 ---
 
 ## Load `libraries`
@@ -260,5 +256,14 @@ dt2$`Perc. of suites` <- dt2$`No. of suites` / (dt1$`Suite ID` |> unique() |> le
 
 dt2 <- dt2[order(-`No. of suites`)]
 
-gr2
+ggsave(
+    plot = gr2, filename = "../static/extended-figures/extended_figure_4.svg",
+    width = 16, height = 8, unit = "in"
+)
 ```
+
+::: {.callout-note}
+Click on the Figure for pop up.
+:::
+
+![**Usage of microbiology-related tool suites across workflows.** Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related workflows, grouped by four levels of development. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different workflows.](../static/extended-figures/extended_figure_4.svg)

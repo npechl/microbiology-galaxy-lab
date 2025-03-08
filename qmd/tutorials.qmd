@@ -1,12 +1,12 @@
 ---
 title: "Tutorials"
+lightbox: 
+    match: auto
+    effect: zoom
+    desc-position: right
 execute:
     eval: true
     warning: false
-format:
-  html:
-    fig-width: 16
-    fig-height: 10
 ---
 
 ## Load `libraries`
@@ -216,9 +216,17 @@ a_2 <- dt2 |>
     
     labs(y = "Tutorials", x = "Galaxy Tool Suites")
 
-a_2
+ggsave(
+    plot = a_2, filename = "../static/extended-figures/extended_figure_5.svg",
+    width = 16, height = 10, unit = "in"
+)
 ```
 
+::: {.callout-note}
+Click on the Figure for pop up.
+:::
+
+![**Usage of microbiology-related tool suites across training materials.** Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related training materials, grouped by EDAM topics. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different training contexts.](../static/extended-figures/extended_figure_5.svg)
 
 ## EDAM ontology distribution: packcircles
 
