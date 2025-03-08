@@ -75,6 +75,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-d78bf99208c865a34f716230472f3c00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -439,15 +442,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Tutorials"</span>, <span class="at">x =</span> <span class="st">"Galaxy Tool Suites"</span>)</span>
 <span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>a_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> a_2, <span class="at">filename =</span> <span class="st">"../static/extended-figures/extended_figure_5.svg"</span>,</span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">16</span>, <span class="at">height =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">"in"</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Click on the Figure for pop up.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tutorials_files/figure-html/unnamed-chunk-5-1.svg" class="img-fluid figure-img"></p>
+<p><a href="../static/extended-figures/extended_figure_5.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Usage of microbiology-related tool suites across training materials. Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related training materials, grouped by EDAM topics. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different training contexts."><img src="../static/extended-figures/extended_figure_5.svg" class="img-fluid figure-img" alt="Usage of microbiology-related tool suites across training materials. Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related training materials, grouped by EDAM topics. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different training contexts."></a></p>
+<figcaption><strong>Usage of microbiology-related tool suites across training materials.</strong> Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related training materials, grouped by EDAM topics. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different training contexts.</figcaption>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="edam-ontology-distribution-packcircles" class="level2" data-number="6.5">
@@ -1038,13 +1056,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Tutorials"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: true</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    warning: false</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 16</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 10</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> </span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">    match: auto</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">    effect: zoom</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    desc-position: right</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: true</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">    warning: false</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load `libraries`</span></span>
@@ -1251,110 +1269,118 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb7-223"><a href="#cb7-223" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb7-224"><a href="#cb7-224" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Tutorials"</span>, <span class="at">x =</span> <span class="st">"Galaxy Tool Suites"</span>)</span>
 <span id="cb7-225"><a href="#cb7-225" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a>a_2</span>
-<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a><span class="fu">## EDAM ontology distribution: packcircles</span></span>
+<span id="cb7-226"><a href="#cb7-226" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb7-227"><a href="#cb7-227" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> a_2, <span class="at">filename =</span> <span class="st">"../static/extended-figures/extended_figure_5.svg"</span>,</span>
+<span id="cb7-228"><a href="#cb7-228" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">16</span>, <span class="at">height =</span> <span class="dv">10</span>, <span class="at">unit =</span> <span class="st">"in"</span></span>
+<span id="cb7-229"><a href="#cb7-229" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-230"><a href="#cb7-230" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-231"><a href="#cb7-231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-234"><a href="#cb7-234" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------</span></span>
-<span id="cb7-236"><a href="#cb7-236" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> microGalaxy_tutorials_dt[, <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"EDAM topic"</span>), with <span class="ot">=</span> <span class="cn">FALSE</span>] <span class="sc">|&gt;</span></span>
-<span id="cb7-237"><a href="#cb7-237" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(<span class="st">"EDAM topic"</span>, <span class="at">sep =</span> <span class="st">","</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-238"><a href="#cb7-238" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setDT</span>()</span>
+<span id="cb7-232"><a href="#cb7-232" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb7-233"><a href="#cb7-233" aria-hidden="true" tabindex="-1"></a>Click on the Figure for pop up.</span>
+<span id="cb7-234"><a href="#cb7-234" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-235"><a href="#cb7-235" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-236"><a href="#cb7-236" aria-hidden="true" tabindex="-1"></a><span class="al">![**Usage of microbiology-related tool suites across training materials.** Heatmap illustrating the presence of microbiology-related tool suites within the available microbiology-related training materials, grouped by EDAM topics. The tool suites are organized based on their corresponding EDAM operations, highlighting the breadth of tools utilized for different training contexts.](../static/extended-figures/extended_figure_5.svg)</span></span>
+<span id="cb7-237"><a href="#cb7-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-238"><a href="#cb7-238" aria-hidden="true" tabindex="-1"></a><span class="fu">## EDAM ontology distribution: packcircles</span></span>
 <span id="cb7-239"><a href="#cb7-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-240"><a href="#cb7-240" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> microGalaxy_tutorials_dt[, <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"EDAM operation"</span>), with <span class="ot">=</span> <span class="cn">FALSE</span>] <span class="sc">|&gt;</span></span>
-<span id="cb7-241"><a href="#cb7-241" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(<span class="st">"EDAM operation"</span>, <span class="at">sep =</span> <span class="st">","</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setDT</span>()</span>
-<span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------</span></span>
-<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="ot">=</span> d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_squish</span>()</span>
-<span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">==</span> <span class="st">""</span>, <span class="st">"No Topic"</span>, d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>)</span>
-<span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-249"><a href="#cb7-249" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="ot">=</span> d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_squish</span>()</span>
-<span id="cb7-250"><a href="#cb7-250" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">==</span> <span class="st">""</span>, <span class="st">"No Operation"</span>, d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>)</span>
+<span id="cb7-242"><a href="#cb7-242" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-243"><a href="#cb7-243" aria-hidden="true" tabindex="-1"></a><span class="co"># ----------------------</span></span>
+<span id="cb7-244"><a href="#cb7-244" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> microGalaxy_tutorials_dt[, <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"EDAM topic"</span>), with <span class="ot">=</span> <span class="cn">FALSE</span>] <span class="sc">|&gt;</span></span>
+<span id="cb7-245"><a href="#cb7-245" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(<span class="st">"EDAM topic"</span>, <span class="at">sep =</span> <span class="st">","</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-246"><a href="#cb7-246" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setDT</span>()</span>
+<span id="cb7-247"><a href="#cb7-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-248"><a href="#cb7-248" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> microGalaxy_tutorials_dt[, <span class="fu">c</span>(<span class="st">"Title"</span>, <span class="st">"EDAM operation"</span>), with <span class="ot">=</span> <span class="cn">FALSE</span>] <span class="sc">|&gt;</span></span>
+<span id="cb7-249"><a href="#cb7-249" aria-hidden="true" tabindex="-1"></a>    tidyr<span class="sc">::</span><span class="fu">separate_rows</span>(<span class="st">"EDAM operation"</span>, <span class="at">sep =</span> <span class="st">","</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-250"><a href="#cb7-250" aria-hidden="true" tabindex="-1"></a>    <span class="fu">setDT</span>()</span>
 <span id="cb7-251"><a href="#cb7-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-252"><a href="#cb7-252" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">=</span> d1[, by <span class="ot">=</span> <span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>, .(<span class="at">N =</span> Title <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb7-253"><a href="#cb7-253" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">=</span> d2[, by <span class="ot">=</span> <span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>, .(<span class="at">N =</span> Title <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
-<span id="cb7-254"><a href="#cb7-254" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-255"><a href="#cb7-255" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
-<span id="cb7-256"><a href="#cb7-256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-257"><a href="#cb7-257" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic length</span><span class="st">`</span>     <span class="ot">&lt;-</span> d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_length</span>()</span>
-<span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation length</span><span class="st">`</span> <span class="ot">&lt;-</span> d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_length</span>()</span>
+<span id="cb7-252"><a href="#cb7-252" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------</span></span>
+<span id="cb7-253"><a href="#cb7-253" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-254"><a href="#cb7-254" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="ot">=</span> d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_squish</span>()</span>
+<span id="cb7-255"><a href="#cb7-255" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">==</span> <span class="st">""</span>, <span class="st">"No Topic"</span>, d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>)</span>
+<span id="cb7-256"><a href="#cb7-256" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-257"><a href="#cb7-257" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="ot">=</span> d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_squish</span>()</span>
+<span id="cb7-258"><a href="#cb7-258" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">==</span> <span class="st">""</span>, <span class="st">"No Operation"</span>, d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>)</span>
 <span id="cb7-259"><a href="#cb7-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> d1[<span class="fu">order</span>(<span class="sc">-</span>N, <span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>)]</span>
-<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> d2[<span class="fu">order</span>(<span class="sc">-</span>N, <span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>)]</span>
+<span id="cb7-260"><a href="#cb7-260" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">=</span> d1[, by <span class="ot">=</span> <span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>, .(<span class="at">N =</span> Title <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
+<span id="cb7-261"><a href="#cb7-261" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">=</span> d2[, by <span class="ot">=</span> <span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>, .(<span class="at">N =</span> Title <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>())]</span>
 <span id="cb7-262"><a href="#cb7-262" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the layout. </span></span>
-<span id="cb7-264"><a href="#cb7-264" aria-hidden="true" tabindex="-1"></a><span class="co"># sizetype can be area or radius, </span></span>
-<span id="cb7-265"><a href="#cb7-265" aria-hidden="true" tabindex="-1"></a><span class="co"># following your preference on what to be proportional to value.</span></span>
-<span id="cb7-266"><a href="#cb7-266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-267"><a href="#cb7-267" aria-hidden="true" tabindex="-1"></a>packing_d1 <span class="ot">&lt;-</span> <span class="fu">circleProgressiveLayout</span>(d1<span class="sc">$</span>N, <span class="at">sizetype =</span> <span class="st">'area'</span>) <span class="sc">|&gt;</span> <span class="fu">circleLayoutVertices</span>(<span class="at">npoints =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
-<span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a>packing_d2 <span class="ot">&lt;-</span> <span class="fu">circleProgressiveLayout</span>(d2<span class="sc">$</span>N, <span class="at">sizetype =</span> <span class="st">'area'</span>) <span class="sc">|&gt;</span> <span class="fu">circleLayoutVertices</span>(<span class="at">npoints =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
-<span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span>strip <span class="ot">&lt;-</span> d1[packing_d1<span class="sc">$</span>id]<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span></span>
-<span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span>strip <span class="ot">&lt;-</span> d2[packing_d2<span class="sc">$</span>id]<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span></span>
-<span id="cb7-272"><a href="#cb7-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-273"><a href="#cb7-273" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span><span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="ot">&lt;-</span> d1[packing_d1<span class="sc">$</span>id]<span class="sc">$</span>N</span>
-<span id="cb7-274"><a href="#cb7-274" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span><span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="ot">&lt;-</span> d2[packing_d2<span class="sc">$</span>id]<span class="sc">$</span>N</span>
-<span id="cb7-275"><a href="#cb7-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-276"><a href="#cb7-276" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span>pack <span class="ot">&lt;-</span> <span class="st">"EDAM topic"</span></span>
-<span id="cb7-277"><a href="#cb7-277" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span>pack <span class="ot">&lt;-</span> <span class="st">"EDAM operation"</span></span>
-<span id="cb7-278"><a href="#cb7-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-279"><a href="#cb7-279" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">rbind</span>(packing_d1, packing_d2)</span>
+<span id="cb7-263"><a href="#cb7-263" aria-hidden="true" tabindex="-1"></a><span class="co"># ------------------------------</span></span>
+<span id="cb7-264"><a href="#cb7-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-265"><a href="#cb7-265" aria-hidden="true" tabindex="-1"></a>d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic length</span><span class="st">`</span>     <span class="ot">&lt;-</span> d1<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_length</span>()</span>
+<span id="cb7-266"><a href="#cb7-266" aria-hidden="true" tabindex="-1"></a>d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation length</span><span class="st">`</span> <span class="ot">&lt;-</span> d2<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span> <span class="sc">|&gt;</span> <span class="fu">str_length</span>()</span>
+<span id="cb7-267"><a href="#cb7-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-268"><a href="#cb7-268" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">&lt;-</span> d1[<span class="fu">order</span>(<span class="sc">-</span>N, <span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span>)]</span>
+<span id="cb7-269"><a href="#cb7-269" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> d2[<span class="fu">order</span>(<span class="sc">-</span>N, <span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span>)]</span>
+<span id="cb7-270"><a href="#cb7-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-271"><a href="#cb7-271" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the layout. </span></span>
+<span id="cb7-272"><a href="#cb7-272" aria-hidden="true" tabindex="-1"></a><span class="co"># sizetype can be area or radius, </span></span>
+<span id="cb7-273"><a href="#cb7-273" aria-hidden="true" tabindex="-1"></a><span class="co"># following your preference on what to be proportional to value.</span></span>
+<span id="cb7-274"><a href="#cb7-274" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-275"><a href="#cb7-275" aria-hidden="true" tabindex="-1"></a>packing_d1 <span class="ot">&lt;-</span> <span class="fu">circleProgressiveLayout</span>(d1<span class="sc">$</span>N, <span class="at">sizetype =</span> <span class="st">'area'</span>) <span class="sc">|&gt;</span> <span class="fu">circleLayoutVertices</span>(<span class="at">npoints =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
+<span id="cb7-276"><a href="#cb7-276" aria-hidden="true" tabindex="-1"></a>packing_d2 <span class="ot">&lt;-</span> <span class="fu">circleProgressiveLayout</span>(d2<span class="sc">$</span>N, <span class="at">sizetype =</span> <span class="st">'area'</span>) <span class="sc">|&gt;</span> <span class="fu">circleLayoutVertices</span>(<span class="at">npoints =</span> <span class="dv">100</span>) <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
+<span id="cb7-277"><a href="#cb7-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-278"><a href="#cb7-278" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span>strip <span class="ot">&lt;-</span> d1[packing_d1<span class="sc">$</span>id]<span class="sc">$</span><span class="st">`</span><span class="at">EDAM topic</span><span class="st">`</span></span>
+<span id="cb7-279"><a href="#cb7-279" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span>strip <span class="ot">&lt;-</span> d2[packing_d2<span class="sc">$</span>id]<span class="sc">$</span><span class="st">`</span><span class="at">EDAM operation</span><span class="st">`</span></span>
 <span id="cb7-280"><a href="#cb7-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-281"><a href="#cb7-281" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> d[<span class="fu">which</span>(<span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">2</span>), by <span class="ot">=</span> .(pack, strip, <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>), .(</span>
-<span id="cb7-282"><a href="#cb7-282" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> (<span class="fu">max</span>(x) <span class="sc">+</span> <span class="fu">min</span>(x)) <span class="sc">/</span> <span class="dv">2</span>,</span>
-<span id="cb7-283"><a href="#cb7-283" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> (<span class="fu">max</span>(y) <span class="sc">+</span> <span class="fu">min</span>(y)) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb7-284"><a href="#cb7-284" aria-hidden="true" tabindex="-1"></a>)]</span>
-<span id="cb7-285"><a href="#cb7-285" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-286"><a href="#cb7-286" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>strip <span class="ot">&lt;-</span> h<span class="sc">$</span>strip <span class="sc">|&gt;</span> <span class="fu">str_wrap</span>(<span class="at">width =</span> <span class="dv">8</span>)</span>
-<span id="cb7-287"><a href="#cb7-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-288"><a href="#cb7-288" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>strip <span class="ot">=</span> h<span class="sc">$</span>strip <span class="sc">|&gt;</span></span>
-<span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Phylogenetic</span><span class="sc">\n</span><span class="st">tree"</span>, <span class="st">"Phylogenetic tree"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Box-Whisker</span><span class="sc">\n</span><span class="st">plot"</span>, <span class="st">"Box-Whisker"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Public</span><span class="sc">\n</span><span class="st">health"</span>, <span class="st">"Public health"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Nucleic</span><span class="sc">\n</span><span class="st">acid"</span>, <span class="st">"Nucleic acid"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-293"><a href="#cb7-293" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"sequence</span><span class="sc">\n</span><span class="st">analysis"</span>, <span class="st">"sequence analysis"</span>)</span>
-<span id="cb7-294"><a href="#cb7-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-295"><a href="#cb7-295" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
-<span id="cb7-296"><a href="#cb7-296" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
-<span id="cb7-297"><a href="#cb7-297" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"grey96"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb7-298"><a href="#cb7-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-299"><a href="#cb7-299" aria-hidden="true" tabindex="-1"></a>    <span class="co"># geom_text_repel(</span></span>
-<span id="cb7-300"><a href="#cb7-300" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     data = h[which(`No. of Tutorials` &lt; 15)], aes(x, y, label = strip, size = `No. of Tutorials`), </span></span>
-<span id="cb7-301"><a href="#cb7-301" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     inherit.aes = FALSE, max.overlaps = Inf, bg.color = "grey96", color = "grey10",</span></span>
-<span id="cb7-302"><a href="#cb7-302" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     bg.r = .065, family = "Calibri"</span></span>
-<span id="cb7-303"><a href="#cb7-303" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ) +</span></span>
-<span id="cb7-304"><a href="#cb7-304" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-305"><a href="#cb7-305" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_shadowtext</span>(</span>
-<span id="cb7-306"><a href="#cb7-306" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> h, <span class="fu">aes</span>(x, y, <span class="at">label =</span> strip, <span class="at">size =</span> <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>),</span>
-<span id="cb7-307"><a href="#cb7-307" aria-hidden="true" tabindex="-1"></a>        <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">bg.color =</span> <span class="st">"grey90"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>, <span class="at">bg.r =</span> .<span class="dv">065</span>,</span>
-<span id="cb7-308"><a href="#cb7-308" aria-hidden="true" tabindex="-1"></a>        <span class="at">family =</span> <span class="st">"Calibri"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span></span>
-<span id="cb7-309"><a href="#cb7-309" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb7-310"><a href="#cb7-310" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-311"><a href="#cb7-311" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_stepsn</span>(</span>
-<span id="cb7-312"><a href="#cb7-312" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">'#00429d'</span>, <span class="st">'#2d58a7'</span>, <span class="st">'#456fb1'</span>, <span class="st">'#5986b9'</span>, <span class="st">'#6e9ec1'</span>, <span class="st">'#84b6c6'</span>, <span class="st">'#c6c6a9'</span>) <span class="sc">|&gt;</span> <span class="fu">rev</span>(),</span>
-<span id="cb7-313"><a href="#cb7-313" aria-hidden="true" tabindex="-1"></a>        <span class="at">guide =</span> <span class="fu">guide_colorsteps</span>(</span>
-<span id="cb7-314"><a href="#cb7-314" aria-hidden="true" tabindex="-1"></a>            <span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="dv">10</span>, <span class="st">"lines"</span>),</span>
-<span id="cb7-315"><a href="#cb7-315" aria-hidden="true" tabindex="-1"></a>            <span class="at">barheight =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>)</span>
-<span id="cb7-316"><a href="#cb7-316" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-281"><a href="#cb7-281" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span><span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="ot">&lt;-</span> d1[packing_d1<span class="sc">$</span>id]<span class="sc">$</span>N</span>
+<span id="cb7-282"><a href="#cb7-282" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span><span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="ot">&lt;-</span> d2[packing_d2<span class="sc">$</span>id]<span class="sc">$</span>N</span>
+<span id="cb7-283"><a href="#cb7-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-284"><a href="#cb7-284" aria-hidden="true" tabindex="-1"></a>packing_d1<span class="sc">$</span>pack <span class="ot">&lt;-</span> <span class="st">"EDAM topic"</span></span>
+<span id="cb7-285"><a href="#cb7-285" aria-hidden="true" tabindex="-1"></a>packing_d2<span class="sc">$</span>pack <span class="ot">&lt;-</span> <span class="st">"EDAM operation"</span></span>
+<span id="cb7-286"><a href="#cb7-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-287"><a href="#cb7-287" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">rbind</span>(packing_d1, packing_d2)</span>
+<span id="cb7-288"><a href="#cb7-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-289"><a href="#cb7-289" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> d[<span class="fu">which</span>(<span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">2</span>), by <span class="ot">=</span> .(pack, strip, <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>), .(</span>
+<span id="cb7-290"><a href="#cb7-290" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> (<span class="fu">max</span>(x) <span class="sc">+</span> <span class="fu">min</span>(x)) <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb7-291"><a href="#cb7-291" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> (<span class="fu">max</span>(y) <span class="sc">+</span> <span class="fu">min</span>(y)) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb7-292"><a href="#cb7-292" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb7-293"><a href="#cb7-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-294"><a href="#cb7-294" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>strip <span class="ot">&lt;-</span> h<span class="sc">$</span>strip <span class="sc">|&gt;</span> <span class="fu">str_wrap</span>(<span class="at">width =</span> <span class="dv">8</span>)</span>
+<span id="cb7-295"><a href="#cb7-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-296"><a href="#cb7-296" aria-hidden="true" tabindex="-1"></a>h<span class="sc">$</span>strip <span class="ot">=</span> h<span class="sc">$</span>strip <span class="sc">|&gt;</span></span>
+<span id="cb7-297"><a href="#cb7-297" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Phylogenetic</span><span class="sc">\n</span><span class="st">tree"</span>, <span class="st">"Phylogenetic tree"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-298"><a href="#cb7-298" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Box-Whisker</span><span class="sc">\n</span><span class="st">plot"</span>, <span class="st">"Box-Whisker"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-299"><a href="#cb7-299" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Public</span><span class="sc">\n</span><span class="st">health"</span>, <span class="st">"Public health"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-300"><a href="#cb7-300" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"Nucleic</span><span class="sc">\n</span><span class="st">acid"</span>, <span class="st">"Nucleic acid"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-301"><a href="#cb7-301" aria-hidden="true" tabindex="-1"></a>    <span class="fu">str_replace_all</span>(<span class="st">"sequence</span><span class="sc">\n</span><span class="st">analysis"</span>, <span class="st">"sequence analysis"</span>)</span>
+<span id="cb7-302"><a href="#cb7-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-303"><a href="#cb7-303" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
+<span id="cb7-304"><a href="#cb7-304" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">group =</span> id)) <span class="sc">+</span> </span>
+<span id="cb7-305"><a href="#cb7-305" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>), <span class="at">color =</span> <span class="st">"grey96"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-306"><a href="#cb7-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-307"><a href="#cb7-307" aria-hidden="true" tabindex="-1"></a>    <span class="co"># geom_text_repel(</span></span>
+<span id="cb7-308"><a href="#cb7-308" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     data = h[which(`No. of Tutorials` &lt; 15)], aes(x, y, label = strip, size = `No. of Tutorials`), </span></span>
+<span id="cb7-309"><a href="#cb7-309" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     inherit.aes = FALSE, max.overlaps = Inf, bg.color = "grey96", color = "grey10",</span></span>
+<span id="cb7-310"><a href="#cb7-310" aria-hidden="true" tabindex="-1"></a>    <span class="co">#     bg.r = .065, family = "Calibri"</span></span>
+<span id="cb7-311"><a href="#cb7-311" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ) +</span></span>
+<span id="cb7-312"><a href="#cb7-312" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-313"><a href="#cb7-313" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_shadowtext</span>(</span>
+<span id="cb7-314"><a href="#cb7-314" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> h, <span class="fu">aes</span>(x, y, <span class="at">label =</span> strip, <span class="at">size =</span> <span class="st">`</span><span class="at">No. of Tutorials</span><span class="st">`</span>),</span>
+<span id="cb7-315"><a href="#cb7-315" aria-hidden="true" tabindex="-1"></a>        <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>, <span class="at">bg.color =</span> <span class="st">"grey90"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>, <span class="at">bg.r =</span> .<span class="dv">065</span>,</span>
+<span id="cb7-316"><a href="#cb7-316" aria-hidden="true" tabindex="-1"></a>        <span class="at">family =</span> <span class="st">"Calibri"</span>, <span class="at">fontface =</span> <span class="st">"bold"</span></span>
 <span id="cb7-317"><a href="#cb7-317" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
 <span id="cb7-318"><a href="#cb7-318" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-319"><a href="#cb7-319" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb7-320"><a href="#cb7-320" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb7-321"><a href="#cb7-321" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pack), <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb7-322"><a href="#cb7-322" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>(<span class="at">base_family =</span> <span class="st">"Calibri"</span>) <span class="sc">+</span> </span>
-<span id="cb7-323"><a href="#cb7-323" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb7-324"><a href="#cb7-324" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
-<span id="cb7-325"><a href="#cb7-325" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title.position =</span> <span class="st">"top"</span>,</span>
-<span id="cb7-326"><a href="#cb7-326" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb7-327"><a href="#cb7-327" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb7-328"><a href="#cb7-328" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
-<span id="cb7-329"><a href="#cb7-329" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_equal</span>()</span>
-<span id="cb7-330"><a href="#cb7-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-331"><a href="#cb7-331" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-319"><a href="#cb7-319" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_stepsn</span>(</span>
+<span id="cb7-320"><a href="#cb7-320" aria-hidden="true" tabindex="-1"></a>        <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">'#00429d'</span>, <span class="st">'#2d58a7'</span>, <span class="st">'#456fb1'</span>, <span class="st">'#5986b9'</span>, <span class="st">'#6e9ec1'</span>, <span class="st">'#84b6c6'</span>, <span class="st">'#c6c6a9'</span>) <span class="sc">|&gt;</span> <span class="fu">rev</span>(),</span>
+<span id="cb7-321"><a href="#cb7-321" aria-hidden="true" tabindex="-1"></a>        <span class="at">guide =</span> <span class="fu">guide_colorsteps</span>(</span>
+<span id="cb7-322"><a href="#cb7-322" aria-hidden="true" tabindex="-1"></a>            <span class="at">barwidth =</span> <span class="fu">unit</span>(<span class="dv">10</span>, <span class="st">"lines"</span>),</span>
+<span id="cb7-323"><a href="#cb7-323" aria-hidden="true" tabindex="-1"></a>            <span class="at">barheight =</span> <span class="fu">unit</span>(.<span class="dv">5</span>, <span class="st">"lines"</span>)</span>
+<span id="cb7-324"><a href="#cb7-324" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb7-325"><a href="#cb7-325" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-326"><a href="#cb7-326" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-327"><a href="#cb7-327" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>), <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb7-328"><a href="#cb7-328" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-329"><a href="#cb7-329" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(pack), <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-330"><a href="#cb7-330" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>(<span class="at">base_family =</span> <span class="st">"Calibri"</span>) <span class="sc">+</span> </span>
+<span id="cb7-331"><a href="#cb7-331" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb7-332"><a href="#cb7-332" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb7-333"><a href="#cb7-333" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb7-334"><a href="#cb7-334" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-335"><a href="#cb7-335" aria-hidden="true" tabindex="-1"></a>        <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb7-336"><a href="#cb7-336" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb7-337"><a href="#cb7-337" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_equal</span>()</span>
+<span id="cb7-338"><a href="#cb7-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-339"><a href="#cb7-339" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1371,6 +1397,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"right","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

@@ -76,6 +76,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-d78bf99208c865a34f716230472f3c00.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -593,15 +596,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>multi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> multi, <span class="at">filename =</span> <span class="st">"../static/extended-figures/extended_figure_3.svg"</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">14</span>, <span class="at">height =</span> <span class="dv">16</span>, <span class="at">unit =</span> <span class="st">"in"</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output-display">
-<div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Click on the Figure for pop up.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="tools_files/figure-html/unnamed-chunk-16-1.svg" class="img-fluid figure-img"></p>
+<p><a href="../static/extended-figures/extended_figure_3.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Availability, usability, and growth of microbiology-related tool suites within the Galaxy ecosystem. (A) Heatmap illustrating the availability of microbiology-related tool suites (x-axis) across various Galaxy servers (y-axis), grouped by EDAM topics. Tool suites may appear in multiple clusters, as they can be annotated with several topics. A logarithmic scale is applied for improved visualization. (B) Scatter plots showing the usage of microbiology-related tool suites over the past five years across all Galaxy main servers, categorized by their EDAM operations. The x-axis represents the total number of tool users, while the y-axis also denotes the total number of tool users (potentially correct this redundancy). (C) Cumulative number of tools added to Galaxy over time, based on the date of the first commit for each tool suite."><img src="../static/extended-figures/extended_figure_3.svg" class="img-fluid figure-img" alt="Availability, usability, and growth of microbiology-related tool suites within the Galaxy ecosystem. (A) Heatmap illustrating the availability of microbiology-related tool suites (x-axis) across various Galaxy servers (y-axis), grouped by EDAM topics. Tool suites may appear in multiple clusters, as they can be annotated with several topics. A logarithmic scale is applied for improved visualization. (B) Scatter plots showing the usage of microbiology-related tool suites over the past five years across all Galaxy main servers, categorized by their EDAM operations. The x-axis represents the total number of tool users, while the y-axis also denotes the total number of tool users (potentially correct this redundancy). (C) Cumulative number of tools added to Galaxy over time, based on the date of the first commit for each tool suite."></a></p>
+<figcaption><strong>Availability, usability, and growth of microbiology-related tool suites within the Galaxy ecosystem.</strong> (A) Heatmap illustrating the availability of microbiology-related tool suites (x-axis) across various Galaxy servers (y-axis), grouped by EDAM topics. Tool suites may appear in multiple clusters, as they can be annotated with several topics. A logarithmic scale is applied for improved visualization. (B) Scatter plots showing the usage of microbiology-related tool suites over the past five years across all Galaxy main servers, categorized by their EDAM operations. The x-axis represents the total number of tool users, while the y-axis also denotes the total number of tool users (potentially correct this redundancy). (C) Cumulative number of tools added to Galaxy over time, based on the date of the first commit for each tool suite.</figcaption>
 </figure>
-</div>
-</div>
 </div>
 
 
@@ -1092,13 +1110,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="sourceCode" id="cb17" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Galaxy Tool Suites"</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: true</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">    warning: false</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-width: 14</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">    fig-height: 16</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="an">lightbox:</span><span class="co"> </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">    match: auto</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">    effect: zoom</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">    desc-position: right</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">    eval: true</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">    warning: false</span></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Load `libraries` </span></span>
@@ -1418,8 +1436,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb17-356"><a href="#cb17-356" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">color =</span> <span class="cn">NA</span>)</span>
 <span id="cb17-357"><a href="#cb17-357" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb17-358"><a href="#cb17-358" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-359"><a href="#cb17-359" aria-hidden="true" tabindex="-1"></a>multi</span>
-<span id="cb17-360"><a href="#cb17-360" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-359"><a href="#cb17-359" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb17-360"><a href="#cb17-360" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot =</span> multi, <span class="at">filename =</span> <span class="st">"../static/extended-figures/extended_figure_3.svg"</span>,</span>
+<span id="cb17-361"><a href="#cb17-361" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="dv">14</span>, <span class="at">height =</span> <span class="dv">16</span>, <span class="at">unit =</span> <span class="st">"in"</span></span>
+<span id="cb17-362"><a href="#cb17-362" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-363"><a href="#cb17-363" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb17-364"><a href="#cb17-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-365"><a href="#cb17-365" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb17-366"><a href="#cb17-366" aria-hidden="true" tabindex="-1"></a>Click on the Figure for pop up.</span>
+<span id="cb17-367"><a href="#cb17-367" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb17-368"><a href="#cb17-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-369"><a href="#cb17-369" aria-hidden="true" tabindex="-1"></a><span class="al">![**Availability, usability, and growth of microbiology-related tool suites within the Galaxy ecosystem.** (A) Heatmap illustrating the availability of microbiology-related tool suites (x-axis) across various Galaxy servers (y-axis), grouped by EDAM topics. Tool suites may appear in multiple clusters, as they can be annotated with several topics. A logarithmic scale is applied for improved visualization. (B) Scatter plots showing the usage of microbiology-related tool suites over the past five years across all Galaxy main servers, categorized by their EDAM operations. The x-axis represents the total number of tool users, while the y-axis also denotes the total number of tool users (potentially correct this redundancy). (C) Cumulative number of tools added to Galaxy over time, based on the date of the first commit for each tool suite.](../static/extended-figures/extended_figure_3.svg)</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1436,6 +1463,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"right","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
